@@ -59,3 +59,5 @@ Las pruebas verifican precisión monetaria, sobreentregas, estados, vencimientos
 La demo no incluye usuarios, permisos, concurrencia ni sincronización entre equipos. La restauración del ejemplo reemplaza la copia local. Para guardar archivos importados fuera del navegador, exportarlos antes de restaurar. No se hacen solicitudes de red con los datos cargados.
 
 Tipografía Manrope, bajo SIL Open Font License (`assets/OFL.txt`). Código de aplicación propio de este proyecto.
+
+Validación del 22/10/2026: 17 pruebas aprobadas en Local y GitHub Actions. Demo publicada en GitHub Pages desde main; smoke externo de HTML, scripts y CSV. Se verificaron importación/exportación real, entregas, cancelación/reactivación y adaptación móvil. No se modificaron servicios corporativos.
