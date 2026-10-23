@@ -1,10 +1,27 @@
 # Folio · Pedidos y entregas
 
-Un escritorio para seguir pedidos comerciales: **qué se pidió, cuánto se entregó y qué falta entregar**. Se puede probar sin registrarse ni instalar nada.
+Folio te ayuda a seguir **qué pidió cada cliente, cuánto le entregaste y qué falta**. Sirve para ventas, administración y quienes preparan entregas. Cargás una planilla de pedidos, anotás las entregas y descargás el listado que necesitás.
+
+Por ejemplo: Taller Roca pide 24 soportes. Ya recibió 12. Si hoy entregás otras 6, registrás **18 entregadas en total** y Folio muestra **6 pendientes**. No necesitás registrarte ni instalar nada para probarlo.
 
 **[Abrir Folio →](https://enriqueariellopez.github.io/folio-orders/)**
 
 La demo ya tiene 28 pedidos ficticios. Podés modificarlos para conocer la herramienta; no afectan a ninguna empresa ni a otra persona. Proyecto de Ariel López.
+
+## Mirá primero cómo funciona
+
+En la parte superior de la app, tocá **Ver cómo funciona**. Abre una guía visual con seis escenas de un pedido ficticio:
+
+1. Qué pidió el cliente y cuánto falta entregar.
+2. Dónde abrir la ficha del pedido.
+3. Cómo registrar una entrega acumulada: de 12 a 18.
+4. Cómo quedan las 6 unidades pendientes y su valor.
+5. Cómo encontrar pedidos con la fecha prometida vencida.
+6. Cómo entrar con una planilla CSV y descargar la vista filtrada.
+
+La guía empieza **en pausa**, para que la leas a tu ritmo. Usá **Anterior** y **Siguiente**, o **Reproducir guía** para avanzar automáticamente cada 12 segundos. Podés pausar, reiniciar o cerrar cuando quieras. **Cerrar**, **Terminar guía** y la tecla **Escape** vuelven a la aplicación.
+
+Es una simulación interactiva de la interfaz, con datos propios: no cambia los pedidos, filtros o archivos que cargaste ni guarda datos en tu sesión. Si tu sistema pide movimiento reducido, la guía muestra las escenas sin animaciones. [Abrir directamente la guía →](https://enriqueariellopez.github.io/folio-orders/?tutorial=1)
 
 ## Cómo usar Folio
 
@@ -110,6 +127,7 @@ Si Python está instalado con otro nombre o ruta, definí `LOTE_PYTHON` con su e
 | `src/domain.js` | Importación y reglas de pedidos, cantidades, estados e importes |
 | `src/csv.js` | Lectura y escritura CSV con comillas, BOM y campos multilínea |
 | `src/app.js` | Filtros, tabla, gráfico, ficha y sesión local |
+| `src/tutorial.js` / `src/tutorial-model.js` | Guía visual y pedido ficticio independiente de la sesión |
 | `style.css` / `identity.css` | Diseño adaptable y detalles visuales del escritorio |
 | `assets/dispatch-map.svg` | Ilustración original de paquetes y ruta de entrega |
 | `sql/schema.sql` | Modelo relacional de cabecera y posiciones, restricciones y resumen |
@@ -122,7 +140,7 @@ La exportación entrecomilla los campos, duplica las comillas internas y antepon
 
 ### Validación y publicación
 
-24 pruebas cubren precisión monetaria, entregas parciales, sobreentregas, estados, cancelación, vencimientos, fechas, importación atómica, CSV y paridad JavaScript/SQLite, además de los prefijos peligrosos en CSV, desbordes del analizador SQL y entradas incompletas. La integración continua las ejecuta con Node y Python. Los cambios de interfaz requieren además una revisión visual y funcional de filtros, ficha, teclado y móvil.
+26 pruebas cubren precisión monetaria, entregas parciales, sobreentregas, estados, cancelación, vencimientos, fechas, importación atómica, CSV y paridad JavaScript/SQLite, además de los prefijos peligrosos en CSV, desbordes del analizador SQL, entradas incompletas y el cálculo aislado del ejemplo de la guía. La integración continua las ejecuta con Node y Python. Los cambios de interfaz requieren además una revisión visual y funcional de filtros, ficha, teclado y móvil.
 
 GitHub Pages publica `main` en la cuenta personal **EnriqueArielLopez**. Esta demo es independiente de los ambientes y servicios corporativos de Practical Solutions; su validación se realiza en Local y GitHub Pages.
 
