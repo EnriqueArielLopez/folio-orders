@@ -33,7 +33,7 @@
 
 .desk-map figcaption {
   margin-top:10px;
-  font:10px/1.7 ui-monospace,Consolas,monospace;
+  font:10px/1.7 var(--ui);
   color:#97a9cd
 }
 
@@ -56,7 +56,7 @@
 }
 
 .desk-code {
-  font:10px/1 ui-monospace,Consolas,monospace;
+  font:10px/1 var(--ui);
   letter-spacing:.08em;
   color:#8298c2
 }
@@ -72,7 +72,7 @@
   border:1px solid #7185a65c;
   border-radius:5px;
   color:#b9ccf2;
-  font:10px ui-monospace,Consolas,monospace
+  font:10px var(--ui)
 }
 
 .route-icon {
