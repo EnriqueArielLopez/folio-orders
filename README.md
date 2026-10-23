@@ -70,7 +70,7 @@ Los datos generales de un pedido deben coincidir en todas sus filas. Se admiten 
 - **Por entregar:** valor de las unidades que todavía faltan entregar.
 - **Pedidos activos:** cantidad de pedidos seleccionados, sin los cancelados.
 - **Avance de entrega:** porcentaje del valor entregado sobre el valor total. Se pondera por importe, no por cantidad de materiales.
-- **Ritmo de pedidos:** valor por semana de alta. Para períodos de más de 90 días, se agrupa por mes.
+- **Ritmo de pedidos:** valor por semana de alta. Para períodos de más de 90 días, se agrupa por mes. Si hay muchos períodos, desplazá el gráfico hacia los costados. Los importes excepcionalmente largos también se pueden desplazar dentro de su indicador para leer todos los dígitos.
 
 Todos los importes están en **pesos argentinos (ARS), sin IVA**. Son valores de pedidos; no representan facturación ni cobros. El corte de análisis está fijado en **22/10/2026**, para que el ejemplo produzca siempre el mismo resultado.
 
