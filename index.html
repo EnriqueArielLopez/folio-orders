@@ -11,9 +11,10 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23091226'/%3E%3Cpath d='M20 46V18H44M20 30H38' fill='none' stroke='%23c8ef7e' stroke-width='6'/%3E%3C/svg%3E">
   <link rel="preload" href="assets/ibm-plex-sans.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/barlow-condensed-semibold.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="style.css?v=plex-barlow-1">
-  <link rel="stylesheet" href="identity.css?v=plex-barlow-1">
+  <link rel="stylesheet" href="style.css?v=guided-demo-1">
+  <link rel="stylesheet" href="identity.css?v=guided-demo-1">
   <script type="module" src="src/app.js"></script>
+  <script type="module" src="src/tutorial.js"></script>
 </head>
 <body>
   <a class="skip" href="#main">Saltar al contenido</a>
@@ -27,8 +28,11 @@
   <div class="workspace">
     <header class="topbar"><span>Operaciones <b>/</b> Pedidos</span><div><span class="demo-badge">DEMO · DATOS FICTICIOS</span><a href="https://github.com/EnriqueArielLopez" target="_blank" rel="noopener" class="avatar" aria-label="GitHub de Ariel López">AL</a></div></header>
     <main id="main">
-      <div class="page-head"><div><p class="overline">CONTROL DE PEDIDOS / 01</p><h1>La entrega empieza acá<span>.</span></h1><p class="subtitle">Qué se pidió, qué salió y qué falta entregar.<br>Tu operación en una sola vista.</p></div><div class="page-actions"><button class="button secondary" id="import-button">↑ Importar CSV</button><button class="button primary" id="export-button">↓ Exportar vista</button><input type="file" id="file" accept=".csv,text/csv" hidden></div></div>
-      <details class="quick-guide"><summary>¿Primera vez en Folio?</summary><p>Buscá un pedido en la tabla y abrilo con ↗. Cambiá la cantidad acumulada de una entrega y guardá: el resumen se actualiza al instante. Podés volver a empezar con <strong>Restaurar ejemplo</strong>. <a href="https://github.com/EnriqueArielLopez/folio-orders#cómo-usar-folio" target="_blank" rel="noopener">Leer la guía completa ↗</a></p></details>
+      <div class="page-head"><div><p class="overline">CONTROL DE PEDIDOS / 01</p><h1>Pedidos y entregas<span>.</span></h1><p class="subtitle">Para ventas, administración y quienes preparan entregas.</p></div><div class="page-actions"><button class="button secondary" id="import-button">↑ Importar CSV</button><button class="button primary" id="export-button">↓ Exportar vista</button><input type="file" id="file" accept=".csv,text/csv" hidden></div></div>
+      <section class="app-explainer" aria-label="Para qué sirve Folio">
+        <div><p><strong>Un cliente pide 24 soportes. Entregaste 12. ¿Qué falta?</strong></p><p>Cargá una planilla de pedidos (CSV), registrá las entregas y descargá el listado que necesitás. Folio te ayuda a seguir lo pendiente, incluso cuando entregás en varias partes.</p></div>
+        <button id="guide-open" class="guide-launch"><span class="guide-launch-icon" aria-hidden="true">▶</span><span>Ver cómo funciona<small>Guía visual · 6 pasos · Sin cambiar tus datos</small></span></button>
+      </section>
       <div class="context-bar"><span><i></i> Datos de ejemplo · ARS · Sin IVA</span><span>Corte de análisis: <strong>22 oct 2026</strong></span></div>
       <section class="metrics" aria-label="Resumen de pedidos">
         <article><p>Valor de pedidos activos</p><div class="metric-value" tabindex="0" role="region" aria-label="Valor de pedidos activos, importe desplazable horizontalmente"><strong id="metric-booked">—</strong></div><small>Cancelados excluidos</small></article>
@@ -50,6 +54,16 @@
       <footer><p>Los archivos se procesan en este navegador.<br>No se envían a un servidor.</p><a href="examples/pedidos.csv" download>Descargar plantilla CSV ↙</a></footer>
     </main>
   </div>
+  <dialog id="folio-guide" class="folio-guide" aria-labelledby="guide-title" aria-describedby="guide-description">
+    <div class="guide-dialog-head"><div><p>FOLIO / GUÍA VISUAL</p><h2 id="guide-title" tabindex="-1">Cómo funciona Folio.</h2><p id="guide-description">Un ejemplo ficticio, paso a paso. Tus pedidos quedan como están.</p></div><button id="guide-close" aria-label="Cerrar la guía">Cerrar <span aria-hidden="true">×</span></button></div>
+    <div class="guide-body">
+      <figure class="guide-screen"><div class="guide-window-bar"><span aria-hidden="true">● ● ●</span><span>SIMULACIÓN / PEDIDO DE EJEMPLO</span></div><div id="guide-stage" data-scene="0" role="group" aria-label="Demostración visual del paso actual"></div><figcaption>La pantalla ilustrada explica el paso; no contiene controles de tus pedidos.</figcaption></figure>
+      <section class="guide-script" aria-labelledby="guide-scene-title"><p id="guide-step-count">PASO 1 DE 6</p><h3 id="guide-scene-title"></h3><p id="guide-scene-copy"></p><p id="guide-scene-action"></p></section>
+    </div>
+    <div class="guide-timeline"><progress id="guide-progress" max="6" value="1" aria-label="Avance de los seis pasos de la guía"></progress><p id="guide-playback-note">Avanzá a tu ritmo o elegí Reproducir guía.</p></div>
+    <div class="guide-controls"><button id="guide-previous" class="button secondary">← Anterior</button><button id="guide-play" class="button secondary" aria-pressed="false">▶ Reproducir guía</button><button id="guide-next" class="button primary">Siguiente →</button><button id="guide-restart" class="quiet">↺ Reiniciar</button></div>
+    <p id="guide-status" class="sr-only" role="status" aria-live="polite"></p>
+  </dialog>
   <dialog id="detail" aria-labelledby="detail-title"><div class="dialog-header"><p>FICHA DE PEDIDO</p><button id="close-detail" aria-label="Cerrar detalle">×</button></div><div id="detail-content"></div></dialog><div id="toast" class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
