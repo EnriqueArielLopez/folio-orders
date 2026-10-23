@@ -1,0 +1,33 @@
+/* Folio: an operations desk, with a continuous ledger and restrained hierarchy. */
+.page-head { align-items: center; }
+.page-head h1 { font-size: clamp(29px, 3vw, 42px); letter-spacing: -.055em; }
+.page-head .overline { font-size: 9px; margin-bottom: 10px; }
+.page-head .subtitle { max-width: none; margin-top: 12px; font-size: 12px; }
+.metrics { gap: 0; background: #fff; border: 1px solid #c9d4c3; border-top: 3px solid #294b3d; border-radius: 0; }
+.metrics article, .metrics > button { border: 0; border-radius: 0; border-right: 1px solid #d8e0d2; background: transparent; padding: 21px; }
+.metrics > button:last-child { border-right: 0; }
+.metrics p { margin-bottom: 12px; }
+.metrics strong { font-variant-numeric: tabular-nums; }
+.metrics .metric-alert { background: #e5eccf; }
+.metrics .metric-alert[aria-pressed=true] { outline: 2px solid #67834c; outline-offset: -3px; box-shadow: none; }
+.chart-panel, .delivery-panel, .orders-panel { border-radius: 2px; box-shadow: none; }
+.orders-panel { border-top: 3px solid #294b3d; }
+.orders-heading h2 { font-size: 18px; }
+tbody tr:hover { background: #f7f9f1; }
+.sidebar { background: #203d35; }
+.sidebar .nav { background: #365449; border-color: #647c66; }
+.logo { font-size: 48px; }
+.button, input, select { border-radius: 3px; }
+.context-bar { margin-top: 28px; }
+@media (max-width: 1100px) {
+  .metrics article, .metrics > button { padding: 18px; }
+  .metrics article:nth-child(2) { border-right: 0; }
+  .metrics article:nth-child(3), .metrics > button:last-child { border-top: 1px solid #d8e0d2; }
+}
+@media (max-width: 680px) {
+  .page-head h1 { font-size: 31px; }
+  .page-head .subtitle { font-size: 13px; line-height: 1.6; }
+  .metrics article, .metrics > button { padding: 17px 14px; }
+  .metrics p, .metrics small { font-size: 10px; }
+  .metrics strong { font-size: 23px; }
+}
