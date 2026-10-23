@@ -1,67 +1,127 @@
-# Folio / Pedidos & entregas
+# Folio · Pedidos y entregas
 
-Una aplicación para responder tres preguntas de una operación comercial: qué se pidió, cuánto se entregó y qué compromiso quedó vencido.
+Un escritorio para seguir pedidos comerciales: **qué se pidió, cuánto se entregó y qué falta entregar**. Se puede probar sin registrarse ni instalar nada.
 
-Proyecto de demostración de Ariel López. No está conectado a SAP, no representa a un cliente y utiliza empresas, materiales y operaciones ficticias. La fecha de corte es **22/10/2026** para que el escenario sea reproducible.
+**[Abrir Folio →](https://enriqueariellopez.github.io/folio-orders/)**
 
-[Abrir demo](https://enriqueariellopez.github.io/folio-orders/)
+La demo ya tiene 28 pedidos ficticios. Podés modificarlos para conocer la herramienta; no afectan a ninguna empresa ni a otra persona. Proyecto de Ariel López.
 
-Transferencia a la cuenta personal `EnriqueArielLopez` completada y verificada por API el 23/10/2026. El repositorio conserva su historial y la configuración de Pages desde `main`. Los enlaces de esta versión apuntan a esa cuenta.
+## Cómo usar Folio
 
-La interfaz utiliza un escritorio operativo: navegación lateral, resumen continuo, gráficos y detalle de pedidos. `identity.css` contiene la composición visual, separada de las reglas base y de la lógica de negocio.
+### 1. Encontrá un pedido
 
-## Qué se puede hacer
+Usá **Pedido o cliente** para buscar un nombre o un número. Si preferís, elegí un estado, una región o un rango de fechas de alta. La tabla, los importes y los gráficos se actualizan con la selección.
 
-- Filtrar por cliente/pedido, región, estado, fechas y compromisos vencidos.
-- Revisar las líneas de un pedido y registrar entregas acumuladas, incluidas entregas parciales.
-- Cancelar o reactivar un pedido. Los cancelados quedan fuera de los indicadores.
-- Importar un CSV con varias líneas por pedido. La importación es atómica: un error conserva los datos anteriores.
-- Exportar la selección actual y recuperar los cambios al volver al mismo navegador.
-- Analizar el mismo CSV mediante un modelo SQLite, sin instalar un motor de base de datos.
+- **Fuera de compromiso** muestra los pedidos con una entrega pendiente y una fecha de compromiso anterior al corte de análisis. Volvé a pulsarlo para quitar ese filtro.
+- **Limpiar** borra todos los filtros.
+- Las flechas al pie de la tabla cambian de página. En un celular, deslizá la tabla hacia los costados para ver todas las columnas.
+- Pulsá **Pedido** para cambiar el orden por número o **Valor neto** para mostrar los mayores importes primero.
 
-## Ejecutar
+### 2. Registrá una entrega
 
-Node 20+ para las pruebas; Python 3.10+ para servir y para la consulta SQL. La interfaz no tiene dependencias de ejecución, instalación ni compilación.
+Abrí la ficha con **↗** al final de la fila. En cada material aparece la cantidad solicitada y la cantidad ya entregada. Cambiá **Entregado de…** y pulsá **Guardar entrega**.
+
+**La cantidad es acumulada:** si ya entregaste 3 unidades y hoy entregás 2 más, escribí **5**, no 2. Folio no permite superar la cantidad solicitada.
+
+El estado se calcula solo:
+
+| Estado | Qué significa |
+| --- | --- |
+| Pendiente | Todavía no se entregó ninguna unidad. |
+| Parcial | Se entregó una parte del pedido. |
+| Entregado | Se entregaron todas las unidades. |
+| Cancelado | Se canceló el pedido y queda fuera de los indicadores. |
+
+En la misma ficha podés **Cancelar pedido** o **Reactivar pedido**. La cancelación conserva las cantidades registradas; podés volver a activarlo cuando quieras. Cerrá la ficha con **×** o con la tecla **Escape**.
+
+### 3. Guardá lo que necesitás
+
+**Exportar vista** descarga un archivo `folio-pedidos.csv` con todos los pedidos que coinciden con los filtros, incluidas las páginas que no estás viendo. Los cambios también se guardan en este navegador y se recuperan al volver a abrir Folio.
+
+Para empezar de nuevo, pulsá **Restaurar ejemplo**. Esto reemplaza los datos y las entregas de tu sesión por los 28 pedidos iniciales. Si querés conservar tu trabajo, exportalo antes.
+
+## Importar tus propios pedidos
+
+1. Descargá la [plantilla CSV](examples/pedidos.csv) o usá **Descargar plantilla CSV** al pie de la aplicación.
+2. Abrila en una planilla y completá las columnas sin cambiar sus nombres. Cada fila representa un material; repetí el número de pedido si tiene varios materiales.
+3. Guardá el archivo como CSV y pulsá **Importar CSV** en Folio.
+
+Una importación correcta reemplaza los pedidos que había en el navegador. Si hay un error, aparece un aviso y los datos anteriores se conservan.
+
+| Columna | Qué completar | Ejemplo |
+| --- | --- | --- |
+| `pedido` | Número o identificador del pedido | `PED-001` |
+| `cliente` | Nombre del cliente | `Comercial del Sur` |
+| `region` | Región o zona | `AMBA` |
+| `fecha` | Fecha de alta, con formato año-mes-día | `2026-10-01` |
+| `compromiso` | Fecha prometida de entrega, con el mismo formato | `2026-10-20` |
+| `material` | Código del material | `MAT-001` |
+| `descripcion` | Nombre del material | `Caja organizadora` |
+| `cantidad` | Unidades solicitadas | `10` |
+| `precio_unitario` | Precio en pesos, con punto decimal y sin miles | `1250.50` |
+| `entregado` | Unidades acumuladas entregadas | `4` |
+| `cancelado` | Opcional: `1` si está cancelado; `0` si está activo | `0` |
+
+Los datos generales de un pedido deben coincidir en todas sus filas. Se admiten archivos de hasta **2 MB**, con **5.000 filas** y hasta un año entre la primera y la última fecha de alta. Las fechas deben estar entre 2000 y 2100.
+
+## Cómo leer los números
+
+- **Valor de pedidos activos:** importe total de los pedidos seleccionados, sin los cancelados.
+- **Por entregar:** valor de las unidades que todavía faltan entregar.
+- **Pedidos activos:** cantidad de pedidos seleccionados, sin los cancelados.
+- **Avance de entrega:** porcentaje del valor entregado sobre el valor total. Se pondera por importe, no por cantidad de materiales.
+- **Ritmo de pedidos:** valor por semana de alta. Para períodos de más de 90 días, se agrupa por mes. Si hay muchos períodos, desplazá el gráfico hacia los costados. Los importes excepcionalmente largos también se pueden desplazar dentro de su indicador para leer todos los dígitos.
+
+Todos los importes están en **pesos argentinos (ARS), sin IVA**. Son valores de pedidos; no representan facturación ni cobros. El corte de análisis está fijado en **22/10/2026**, para que el ejemplo produzca siempre el mismo resultado.
+
+## Privacidad y límites
+
+Los archivos se procesan en tu navegador y no se envían a un servidor. La sesión se conserva en el almacenamiento local del navegador: no se comparte entre computadoras, perfiles o personas. Si borrás los datos del navegador, esa copia puede desaparecer; usá **Exportar vista** para conservar un archivo.
+
+La demo no tiene usuarios, permisos, trabajo simultáneo entre personas ni conexión con SAP. Las empresas, los materiales y las operaciones del ejemplo son ficticios.
+
+## Ejecutar en tu computadora
+
+Necesitás **Python 3.10 o posterior**. Descargá este repositorio y abrí una terminal dentro de su carpeta. Ejecutá:
 
 ```sh
 python -m http.server 4181 --bind 127.0.0.1
-# Abrir http://127.0.0.1:4181
+```
+
+Después abrí **http://127.0.0.1:4181** en el navegador. Mantené la terminal abierta mientras lo usás; para detener el servidor, presioná `Ctrl+C`. Si en Windows el comando `python` no existe, probá `py -m http.server 4181 --bind 127.0.0.1`.
+
+No hay que instalar paquetes ni compilar la aplicación. Abrir `index.html` con doble clic no es suficiente, porque la aplicación utiliza módulos de JavaScript.
+
+## Para desarrollar
+
+HTML, CSS y JavaScript con módulos nativos. La interfaz usa un escritorio de vidrio azul nocturno, una ilustración de rutas en SVG y controles con foco de teclado visible. En pantallas angostas, la tabla conserva sus columnas y permite desplazamiento horizontal. El efecto de vidrio tiene un fondo opaco de respaldo para navegadores sin `backdrop-filter`.
+
+Requisitos de validación: **Node 20+** y **Python 3.10+**. No hace falta `npm install`.
+
+```sh
 npm test
 python scripts/analyze_sql.py examples/pedidos.csv
 ```
 
-`npm test` usa exclusivamente el runner incluido en Node. No hace falta ejecutar `npm install`.
-
-## Datos y decisiones
-
-El CSV tiene estas columnas: `pedido,cliente,region,fecha,compromiso,material,descripcion,cantidad,precio_unitario,entregado`. `cancelado` es opcional (`0` o `1`). Se incluye una plantilla en `examples/pedidos.csv`.
-
-- Precio: moneda única **ARS**, sin IVA, con punto decimal y sin separadores de miles. Fechas ISO `YYYY-MM-DD`.
-- Máximo 2 MB, 5.000 líneas y un año de pedidos por importación. Fechas entre 2000 y 2100.
-- Importes en **centavos enteros**, tanto en JavaScript como en SQL. El porcentaje de entrega se pondera por valor, no por cantidad de materiales distintos.
-- El compromiso vence cuando su fecha es anterior al corte y queda valor pendiente de entrega.
-- El gráfico agrupa por semana; para más de 90 días cambia a meses. Se incluyen períodos sin pedidos.
-- La exportación neutraliza celdas que podrían ejecutarse como fórmulas al abrir un CSV en una planilla.
-
-## Estructura
+Si Python está instalado con otro nombre o ruta, definí `LOTE_PYTHON` con su ejecutable antes de correr las pruebas. Ese nombre se conserva por compatibilidad con el runner compartido de validación.
 
 | Archivo | Responsabilidad |
 | --- | --- |
-| `src/domain.js` | Reglas de negocio, importación y cálculos independientes de la interfaz |
-| `src/csv.js` | CSV con BOM, comillas, separadores y campos multilínea |
-| `src/app.js` | Eventos, vista filtrada, gráfico, ficha y persistencia local |
-| `sql/schema.sql` | Cabecera/posiciones, restricciones y vista de resumen |
-| `scripts/analyze_sql.py` | Carga transaccional en SQLite en memoria y consulta del resumen |
-| `tests/` | Casos de dinero, entregas, cancelación, fechas e importación |
+| `src/domain.js` | Importación y reglas de pedidos, cantidades, estados e importes |
+| `src/csv.js` | Lectura y escritura CSV con comillas, BOM y campos multilínea |
+| `src/app.js` | Filtros, tabla, gráfico, ficha y sesión local |
+| `style.css` / `identity.css` | Diseño adaptable y detalles visuales del escritorio |
+| `assets/dispatch-map.svg` | Ilustración original de paquetes y ruta de entrega |
+| `sql/schema.sql` | Modelo relacional de cabecera y posiciones, restricciones y resumen |
+| `scripts/analyze_sql.py` | Carga transaccional y consulta SQLite en memoria |
+| `tests/` | Pruebas de negocio, CSV y paridad con SQLite |
 
-La interfaz opera en memoria y `localStorage`. El modelo SQL es una implementación verificable separada; no se presenta como un backend que la demo no tiene.
+Los importes se calculan en centavos enteros. La exportación neutraliza celdas que podrían ejecutarse como fórmulas en una planilla. El modelo SQLite se ejecuta por separado para comprobar los resultados; no es un backend de la aplicación web.
 
-## Validación y límites
+### Validación y publicación
 
-Las pruebas verifican precisión monetaria, sobreentregas, estados, vencimientos, cancelaciones, ida y vuelta CSV y entradas malformadas. La revisión funcional cubre filtros, entrega parcial, cancelación/reactivación, paginación y móvil.
+17 pruebas cubren precisión monetaria, entregas parciales, sobreentregas, estados, cancelación, vencimientos, fechas, importación atómica, CSV y paridad JavaScript/SQLite. La integración continua las ejecuta con Node y Python. Los cambios de interfaz requieren además una revisión visual y funcional de filtros, ficha, teclado y móvil.
 
-La demo no incluye usuarios, permisos, concurrencia ni sincronización entre equipos. La restauración del ejemplo reemplaza la copia local. Para guardar archivos importados fuera del navegador, exportarlos antes de restaurar. No se hacen solicitudes de red con los datos cargados.
+GitHub Pages publica `main` en la cuenta personal **EnriqueArielLopez**. Esta demo es independiente de los ambientes y servicios corporativos de Practical Solutions; su validación se realiza en Local y GitHub Pages.
 
-Tipografía Manrope, bajo SIL Open Font License (`assets/OFL.txt`). Código de aplicación propio de este proyecto.
-
-Validación del 22/10/2026: 17 pruebas aprobadas en Local y GitHub Actions. Demo publicada en GitHub Pages desde main; smoke externo de HTML, scripts y CSV. Se verificaron importación/exportación real, entregas, cancelación/reactivación y adaptación móvil. No se modificaron servicios corporativos.
+Tipografía Manrope bajo SIL Open Font License, incluida en `assets/OFL.txt`.

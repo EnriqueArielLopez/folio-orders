@@ -1,33 +1,186 @@
-/* Folio: an operations desk, with a continuous ledger and restrained hierarchy. */
-.page-head { align-items: center; }
-.page-head h1 { font-size: clamp(29px, 3vw, 42px); letter-spacing: -.055em; }
-.page-head .overline { font-size: 9px; margin-bottom: 10px; }
-.page-head .subtitle { max-width: none; margin-top: 12px; font-size: 12px; }
-.metrics { gap: 0; background: #fff; border: 1px solid #c9d4c3; border-top: 3px solid #294b3d; border-radius: 0; }
-.metrics article, .metrics > button { border: 0; border-radius: 0; border-right: 1px solid #d8e0d2; background: transparent; padding: 21px; }
-.metrics > button:last-child { border-right: 0; }
-.metrics p { margin-bottom: 12px; }
-.metrics strong { font-variant-numeric: tabular-nums; }
-.metrics .metric-alert { background: #e5eccf; }
-.metrics .metric-alert[aria-pressed=true] { outline: 2px solid #67834c; outline-offset: -3px; box-shadow: none; }
-.chart-panel, .delivery-panel, .orders-panel { border-radius: 2px; box-shadow: none; }
-.orders-panel { border-top: 3px solid #294b3d; }
-.orders-heading h2 { font-size: 18px; }
-tbody tr:hover { background: #f7f9f1; }
-.sidebar { background: #203d35; }
-.sidebar .nav { background: #365449; border-color: #647c66; }
-.logo { font-size: 48px; }
-.button, input, select { border-radius: 3px; }
-.context-bar { margin-top: 28px; }
-@media (max-width: 1100px) {
-  .metrics article, .metrics > button { padding: 18px; }
-  .metrics article:nth-child(2) { border-right: 0; }
-  .metrics article:nth-child(3), .metrics > button:last-child { border-top: 1px solid #d8e0d2; }
+/* Folio's dispatch desk: smoked glass, route geometry and electric ink. */
+.desk-mark {
+  display:inline-flex;
+  width:34px;
+  height:34px
 }
-@media (max-width: 680px) {
-  .page-head h1 { font-size: 31px; }
-  .page-head .subtitle { font-size: 13px; line-height: 1.6; }
-  .metrics article, .metrics > button { padding: 17px 14px; }
-  .metrics p, .metrics small { font-size: 10px; }
-  .metrics strong { font-size: 23px; }
+
+.desk-mark svg {
+  width:100%;
+  height:100%
+}
+
+.logo {
+  justify-content:flex-start;
+  gap:12px
+}
+
+.logo>span {
+  color:inherit;
+  font-size:inherit
+}
+
+.desk-map {
+  margin:38px -2px 0
+}
+
+.desk-map img {
+  display:block;
+  width:100%;
+  height:auto;
+  opacity:.9
+}
+
+.desk-map figcaption {
+  margin-top:10px;
+  font:10px/1.7 ui-monospace,Consolas,monospace;
+  color:#97a9cd
+}
+
+.desk-map figcaption span {
+  color:#d3f68a
+}
+
+.page-head {
+  position:relative
+}
+
+.page-head::before {
+  content:'';
+  position:absolute;
+  left:-23px;
+  top:3px;
+  width:3px;
+  height:36px;
+  background:#c8ef7e
+}
+
+.desk-code {
+  font:10px/1 ui-monospace,Consolas,monospace;
+  letter-spacing:.08em;
+  color:#8298c2
+}
+
+.panel-number {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:22px;
+  height:22px;
+  margin-right:9px;
+  vertical-align:1px;
+  border:1px solid #7185a65c;
+  border-radius:5px;
+  color:#b9ccf2;
+  font:10px ui-monospace,Consolas,monospace
+}
+
+.route-icon {
+  width:28px;
+  height:28px;
+  color:#bdd2fa
+}
+
+.delivery-panel::after {
+  content:'';
+  position:absolute;
+  width:130px;
+  height:130px;
+  right:-38px;
+  bottom:-50px;
+  border:1px solid #8bb2ff23;
+  transform:rotate(35deg);
+  pointer-events:none
+}
+
+.table-wrap {
+  scrollbar-color:#6c88bb #101c35;
+  scrollbar-width:thin
+}
+
+.orders-heading .section-hint {
+  color:#97acd0;
+  font-size:11px;
+  margin:8px 0 0 31px
+}
+
+.quick-guide {
+  border-top:1px solid #7793c12b;
+  border-bottom:1px solid #7793c12b;
+  padding:13px 0;
+  margin-top:18px;
+  font-size:12px;
+  color:#b6c8e7
+}
+
+.quick-guide summary {
+  cursor:pointer;
+  width:fit-content;
+  min-height:24px
+}
+
+.quick-guide summary::marker {
+  color:#c8ef7e
+}
+
+.quick-guide p {
+  max-width:700px;
+  margin:9px 0 2px 15px;
+  line-height:1.8
+}
+
+.quick-guide a {
+  color:#d6f4a4;
+  text-decoration:underline;
+  text-underline-offset:3px
+}
+
+@media(max-width:1150px) {
+  .desk-map {
+    margin-top:28px
+  }
+  .desk-map figcaption {
+    font-size:9px
+  }
+  .page-head::before {
+    left:-15px
+  }
+}
+
+@media(max-width:760px) {
+  .desk-map {
+    display:none
+  }
+  .desk-mark {
+    width:26px;
+    height:26px
+  }
+  .page-head::before {
+    display:none
+  }
+  .orders-heading .section-hint {
+    margin-left:0;
+    font-size:11px
+  }
+}
+
+.sidebar {
+  overflow-y:auto;
+  scrollbar-width:thin;
+  scrollbar-color:#6684b6 transparent
+}
+
+@media(min-width:761px) and (max-height:800px) {
+  .desk-map {
+    margin-top:20px
+  }
+  .desk-map img {
+    max-height:120px
+  }
+  .desk-map figcaption {
+    display:none
+  }
+  .sidebar .logo {
+    margin-bottom:30px
+  }
 }

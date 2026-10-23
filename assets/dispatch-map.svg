@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180" fill="none">
+<path d="M0 156H200M0 116H200M0 76H200M0 36H200M20 16V174M60 16V174M100 16V174M140 16V174M180 16V174" stroke="#9BB9EF" stroke-opacity=".07"/>
+<path d="M32 126H67V70H138V105H168" stroke="#93B7FF" stroke-opacity=".22" stroke-width="14" stroke-linejoin="round"/>
+<path d="M32 126H67V70H138V105H168" stroke="#93B7FF" stroke-width="1.5" stroke-dasharray="3 5"/>
+<path d="M92 69H137V105H168" stroke="#C8EF7E" stroke-width="2"/><path d="M161 100L168 105L161 110" stroke="#C8EF7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14 111L31 102L48 111V134L31 144L14 134Z" fill="#162B52" stroke="#94B5F2"/><path d="M14 111L31 121L48 111M31 121V144M23 107L40 116V124" stroke="#94B5F2"/>
+<path d="M116 36L138 24L160 36V64L138 77L116 64Z" fill="#314D85" stroke="#BCD1FC"/><path d="M116 36L138 49L160 36M138 49V77M127 30L149 43V53" stroke="#BCD1FC"/>
+<circle cx="67" cy="70" r="4" fill="#0F1E39" stroke="#A5C4FC"/><circle cx="168" cy="105" r="10" fill="#213F3C" stroke="#C8EF7E" stroke-opacity=".5"/><circle cx="168" cy="105" r="3" fill="#C8EF7E"/>
+<path d="M93 151H121M107 144V158" stroke="#7191C7" stroke-opacity=".5"/><path d="M9 21V9H21M179 9H191V21M191 159V171H179" stroke="#A7C3F4" stroke-opacity=".4"/>
+<text x="15" y="166" fill="#8CA4CF" font-family="monospace" font-size="7" letter-spacing="1">RUTA / 001</text></svg>
