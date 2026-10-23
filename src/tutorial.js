@@ -70,6 +70,7 @@ function renderScene() {
   $('#guide-next').textContent = index === scenes.length - 1 ? 'Terminar guía ✓' : 'Siguiente →';
   $('#guide-status').textContent = `Paso ${index + 1} de ${scenes.length}. ${scene.title}`;
   updatePlayback();
+  guide.scrollTop = 0;
 }
 function updatePlayback() {
   $('#guide-play').textContent = playing ? 'Ⅱ Pausar guía' : index === scenes.length - 1 ? '▶ Reproducir de nuevo' : '▶ Reproducir guía';
@@ -98,6 +99,7 @@ function openGuide() {
   pause();
   renderScene();
   guide.showModal();
+  guide.scrollTop = 0;
   document.documentElement.style.overflow = 'hidden';
   $('#guide-title').focus({preventScroll:true});
 }
