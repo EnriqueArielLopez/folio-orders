@@ -4,7 +4,11 @@ Una aplicación para responder tres preguntas de una operación comercial: qué 
 
 Proyecto de demostración de Ariel López. No está conectado a SAP, no representa a un cliente y utiliza empresas, materiales y operaciones ficticias. La fecha de corte es **22/10/2026** para que el escenario sea reproducible.
 
-[Abrir demo](https://ariel-lopezPS.github.io/folio-orders/)
+[Abrir demo](https://enriqueariellopez.github.io/folio-orders/)
+
+La transferencia del repositorio a `EnriqueArielLopez` fue solicitada; la URL de Pages indicada corresponde al destino y requiere completar esa transferencia y verificar la publicación.
+
+La interfaz utiliza un escritorio operativo: navegación lateral, resumen continuo, gráficos y detalle de pedidos. `identity.css` contiene la composición visual, separada de las reglas base y de la lógica de negocio.
 
 ## Qué se puede hacer
 
