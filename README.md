@@ -96,7 +96,7 @@ No hay que instalar paquetes ni compilar la aplicación. Abrir `index.html` con 
 
 HTML, CSS y JavaScript con módulos nativos. La interfaz usa un escritorio de vidrio azul nocturno, una ilustración de rutas en SVG y controles con foco de teclado visible. En pantallas angostas, la tabla conserva sus columnas y permite desplazamiento horizontal. El efecto de vidrio tiene un fondo opaco de respaldo para navegadores sin `backdrop-filter`.
 
-Requisitos de validación: **Node 20+** y **Python 3.10+**. No hace falta `npm install`.
+Requisitos de validación: **Node 22 o 24 LTS+** y **Python 3.10+**. No hace falta `npm install`.
 
 ```sh
 npm test
@@ -125,6 +125,10 @@ La exportación entrecomilla los campos, duplica las comillas internas y antepon
 24 pruebas cubren precisión monetaria, entregas parciales, sobreentregas, estados, cancelación, vencimientos, fechas, importación atómica, CSV y paridad JavaScript/SQLite, además de los prefijos peligrosos en CSV, desbordes del analizador SQL y entradas incompletas. La integración continua las ejecuta con Node y Python. Los cambios de interfaz requieren además una revisión visual y funcional de filtros, ficha, teclado y móvil.
 
 GitHub Pages publica `main` en la cuenta personal **EnriqueArielLopez**. Esta demo es independiente de los ambientes y servicios corporativos de Practical Solutions; su validación se realiza en Local y GitHub Pages.
+
+### Seguridad del navegador y del CI
+
+La revisión de seguridad del 23 de octubre de 2026 reforzó los prefijos de fórmulas CSV y los límites numéricos del analizador SQL. La página incluye una política CSP parcial que bloquea bases HTML, objetos, envíos de formulario a la red y manejadores JavaScript en atributos; no reemplaza una CSP completa del servidor. Las pruebas locales usan Node 22 LTS. La migración del CI a Node 24 LTS y a acciones fijadas por commit quedó preparada: GitHub requiere el permiso `workflow` que no incluye la credencial actual; el workflow vigente todavía usa Node 20 y etiquetas de versión.
 
 ### Tipografías y licencias
 
