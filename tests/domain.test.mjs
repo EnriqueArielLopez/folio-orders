@@ -16,7 +16,16 @@ test('exportar y reimportar conserva todas las líneas y cancelaciones del ejemp
 test('importación atómica rechaza metadata inconsistente',()=>{const csv=exportOrders([order()]);const second=csv.split('\r\n')[1].replace('Cliente de prueba','Otro cliente');assert.throws(()=>importOrders(csv+'\r\n'+second),/cabeceras diferentes/);});
 test('CSV maneja BOM, comillas, punto y coma y saltos en celdas',()=>{const parsed=parseCSV('\uFEFFa;b\r\n"uno;dos";"tres\ncuatro"');assert.deepEqual(parsed.rows,[{a:'uno;dos',b:'tres\ncuatro'}]);assert.throws(()=>parseCSV('a,b\n"sin cierre,x'));});
 test('CSV rechaza columnas duplicadas y filas mal formadas',()=>{assert.throws(()=>parseCSV('a,a\n1,2'));assert.throws(()=>parseCSV('a,b\n1,2,3'));});
-test('exportación neutraliza fórmulas al abrir el CSV en una planilla',()=>{assert.ok(toCSV(['name'],[{name:'=1+1'}]).includes("'=1+1"));});
+test('el CSV protege iniciadores ASCII, ancho completo y controles sin romper las celdas',()=>{
+  const dangerous=['=1+1','+SUM(1,2)','-1+1','@SUM(1,2)','  =1+1','\ufeff=1+1','＝1+1','＋SUM(1,2)','－1+1','＠SUM(1,2)','\ttexto','\rtexto','\ntexto',' \ttexto','\ufeff\ttexto','=1+1";,=2'];
+  for(const name of dangerous){
+    const csv=toCSV(['name'],[{name}]);
+    assert.deepEqual(parseCSV(csv).rows,[{name:"'"+name}],JSON.stringify(name));
+  }
+  for(const name of ['Cliente normal','texto";=1+1','  texto','Texto\ncon otra línea']){
+    assert.deepEqual(parseCSV(toCSV(['name'],[{name}])).rows,[{name}]);
+  }
+});
 test('un lote de años distintos se rechaza antes de intentar graficarlo',()=>{const a=order(),b={...order(),id:'PV-2',date:'2024-01-01',due:'2024-01-02'};assert.throws(()=>importOrders(exportOrders([a,b])),/un año/);});
 test('un salto de línea no es parte de un importe válido',()=>{assert.throws(()=>moneyToCents('1\n'));});
 test('la suma del lote también está protegida contra desborde',()=>{const row={...order(),lines:[{...order().lines[0],quantity:1,delivered:0,unitPriceCents:4_000_000_000_000_000}]};assert.throws(()=>summarize([row,row,row]),/rango monetario/);});

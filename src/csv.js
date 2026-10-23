@@ -29,6 +29,6 @@ export function parseCSV(source, maxRows = 5000) {
   return { headers, rows: rows.map((values, index) => { if (values.length !== headers.length) throw new Error(`Fila ${index + 2}: se esperaban ${headers.length} columnas.`); return Object.fromEntries(headers.map((header, i) => [header, values[i]])); }) };
 }
 export function toCSV(headers, rows) {
-  const escape = value => { let text = String(value ?? ''); if (/^[\s]*[=+@-]/.test(text)) text = "'" + text; return '"' + text.replaceAll('"', '""') + '"'; };
+  const escape = value => { let text = String(value ?? ''); if (/^[\s\uFEFF]*[=+@\-＝＋－＠\t\r\n]/u.test(text)) text = "'" + text; return '"' + text.replaceAll('"', '""') + '"'; };
   return '\uFEFF' + [headers, ...rows.map(row => headers.map(header => row[header]))].map(row => row.map(escape).join(',')).join('\r\n');
 }

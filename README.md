@@ -116,11 +116,13 @@ Si Python está instalado con otro nombre o ruta, definí `LOTE_PYTHON` con su e
 | `scripts/analyze_sql.py` | Carga transaccional y consulta SQLite en memoria |
 | `tests/` | Pruebas de negocio, CSV y paridad con SQLite |
 
-Los importes se calculan en centavos enteros. La exportación neutraliza celdas que podrían ejecutarse como fórmulas en una planilla. El modelo SQLite se ejecuta por separado para comprobar los resultados; no es un backend de la aplicación web.
+Los importes se calculan en centavos enteros. El modelo SQLite se ejecuta por separado para comprobar los resultados; no es un backend de la aplicación web. El analizador Python rechaza cantidades fuera de 1–100.000, sobreentregas, precios fuera del formato de la web y totales por pedido o lote activo superiores a `2^53 - 1` centavos. Esto evita que SQLite convierta un importe desbordado a punto flotante. Los errores de CSV y validación terminan con código `2` y un mensaje, sin emitir un resumen parcial.
+
+La exportación entrecomilla los campos, duplica las comillas internas y antepone un apóstrofo a valores con posibles iniciadores de fórmula: `=`, `+`, `-`, `@`, sus variantes de ancho completo y tabulaciones o saltos de línea iniciales. Las pruebas comprueban la serialización del archivo; no ejecutan Excel ni otras planillas. Algunas planillas pueden eliminar la protección al guardar y volver a abrir el CSV: no existe una defensa universal para todos los consumidores, como explica [OWASP sobre CSV Injection](https://community.owasp.org/attacks/CSV_Injection).
 
 ### Validación y publicación
 
-17 pruebas cubren precisión monetaria, entregas parciales, sobreentregas, estados, cancelación, vencimientos, fechas, importación atómica, CSV y paridad JavaScript/SQLite. La integración continua las ejecuta con Node y Python. Los cambios de interfaz requieren además una revisión visual y funcional de filtros, ficha, teclado y móvil.
+24 pruebas cubren precisión monetaria, entregas parciales, sobreentregas, estados, cancelación, vencimientos, fechas, importación atómica, CSV y paridad JavaScript/SQLite, además de los prefijos peligrosos en CSV, desbordes del analizador SQL y entradas incompletas. La integración continua las ejecuta con Node y Python. Los cambios de interfaz requieren además una revisión visual y funcional de filtros, ficha, teclado y móvil.
 
 GitHub Pages publica `main` en la cuenta personal **EnriqueArielLopez**. Esta demo es independiente de los ambientes y servicios corporativos de Practical Solutions; su validación se realiza en Local y GitHub Pages.
 
