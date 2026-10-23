@@ -124,4 +124,11 @@ Los importes se calculan en centavos enteros. La exportación neutraliza celdas 
 
 GitHub Pages publica `main` en la cuenta personal **EnriqueArielLopez**. Esta demo es independiente de los ambientes y servicios corporativos de Practical Solutions; su validación se realiza en Local y GitHub Pages.
 
-Tipografía Manrope bajo SIL Open Font License, incluida en `assets/OFL.txt`.
+### Tipografías y licencias
+
+Folio combina **IBM Plex Sans** en controles, tablas y textos con **Barlow Condensed SemiBold** en el título, el logotipo y los valores principales. La jerarquía usa cifras tabulares y una composición industrial; las fuentes se sirven desde el repositorio, sin solicitudes a Google Fonts durante el uso.
+
+- [IBM Plex Sans](https://github.com/google/fonts/tree/main/ofl/ibmplexsans): archivo variable original `assets/ibm-plex-sans.ttf`, ejes de peso 100–700 y ancho 75–100 %. Licencia SIL OFL en [OFL-IBM-Plex-Sans.txt](assets/OFL-IBM-Plex-Sans.txt).
+- [Barlow Condensed](https://github.com/google/fonts/tree/main/ofl/barlowcondensed): peso SemiBold 600 en `assets/barlow-condensed-semibold.ttf`. Licencia SIL OFL en [OFL-Barlow-Condensed.txt](assets/OFL-Barlow-Condensed.txt).
+
+Los archivos TTF proceden del repositorio oficial Google Fonts y se conservan sin modificaciones.
