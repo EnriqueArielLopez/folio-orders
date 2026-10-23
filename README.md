@@ -6,7 +6,7 @@ Proyecto de demostración de Ariel López. No está conectado a SAP, no represen
 
 [Abrir demo](https://enriqueariellopez.github.io/folio-orders/)
 
-La transferencia del repositorio a `EnriqueArielLopez` fue solicitada; la URL de Pages indicada corresponde al destino y requiere completar esa transferencia y verificar la publicación.
+Transferencia a la cuenta personal `EnriqueArielLopez` completada y verificada por API el 23/10/2026. El repositorio conserva su historial y la configuración de Pages desde `main`. Los enlaces de esta versión apuntan a esa cuenta.
 
 La interfaz utiliza un escritorio operativo: navegación lateral, resumen continuo, gráficos y detalle de pedidos. `identity.css` contiene la composición visual, separada de las reglas base y de la lógica de negocio.
 
