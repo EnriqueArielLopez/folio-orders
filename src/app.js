@@ -1,3 +1,4 @@
+import { icon } from './icons.js';
 import {
   CUTOFF,
   amounts,
@@ -172,7 +173,7 @@ function render() {
       const value = amounts(order),
         state = status(order),
         progress = value.total ? Math.round((value.delivered / value.total) * 100) : 0;
-      return `<tr><td><strong>${escape(order.id)}</strong><small>${escape(date(order.date))}</small></td><td><strong>${escape(order.customer)}</strong><small>${escape(order.region)}</small></td><td><span class="${overdue(order) ? 'late' : ''}">${escape(date(order.due))}</span>${overdue(order) ? '<small class="late">Compromiso vencido</small>' : ''}</td><td class="numeric">${escape(money(value.total))}</td><td>${progress}%<div class="mini-progress"><i style="width:${progress}%"></i></div></td><td><span class="status ${state.toLowerCase()}">${state}</span></td><td><button class="view-order" data-order="${escape(order.id)}" aria-label="Ver pedido ${escape(order.id)}">↗</button></td></tr>`;
+      return `<tr><td><strong>${escape(order.id)}</strong><small>${escape(date(order.date))}</small></td><td><strong>${escape(order.customer)}</strong><small>${escape(order.region)}</small></td><td><span class="${overdue(order) ? 'late' : ''}">${escape(date(order.due))}</span>${overdue(order) ? '<small class="late">Compromiso vencido</small>' : ''}</td><td class="numeric">${escape(money(value.total))}</td><td>${progress}%<div class="mini-progress"><i style="width:${progress}%"></i></div></td><td><span class="status ${state.toLowerCase()}">${state}</span></td><td><button class="view-order" data-order="${escape(order.id)}" aria-label="Ver pedido ${escape(order.id)}">${icon('arrow-up-right')}</button></td></tr>`;
     })
     .join('');
   $('#empty').hidden = !!list.length;
@@ -182,7 +183,9 @@ function render() {
   $('#previous').disabled = page === 1;
   $('#next').disabled = page === pages;
   $('#export-button').disabled = !list.length;
-  $('#sort-order').innerHTML = `Pedido <span>${sort === 'id-asc' ? '↑' : '↓'}</span>`;
+  $('#sort-order').innerHTML =
+    `Pedido ${icon(sort === 'id-asc' ? 'arrow-up' : sort === 'id-desc' ? 'arrow-down' : 'sort')}`;
+  $('#sort-value').innerHTML = `Valor neto ${icon(sort === 'value-desc' ? 'arrow-down' : 'sort')}`;
   $('#sort-order')
     .closest('th')
     .setAttribute(

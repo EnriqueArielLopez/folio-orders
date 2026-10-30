@@ -177,6 +177,10 @@
   font-size: 12px;
   min-height: 44px;
 }
+.guide-controls .icon {
+  width: 16px;
+  height: 16px;
+}
 #guide-restart {
   margin-left: auto;
   padding-inline: 5px;

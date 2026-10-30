@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="arrow-right" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" /></symbol>
+  <symbol id="arrow-left" viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6" /></symbol>
+  <symbol id="arrow-up" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6" /></symbol>
+  <symbol id="arrow-down" viewBox="0 0 24 24"><path d="M12 5v14m-6-6 6 6 6-6" /></symbol>
+  <symbol id="arrow-up-right" viewBox="0 0 24 24"><path d="M5 19 19 5M6 5h13v13" /></symbol>
+  <symbol id="arrow-down-right" viewBox="0 0 24 24"><path d="M5 5 19 19M6 19h13V6" /></symbol>
+  <symbol id="arrow-down-left" viewBox="0 0 24 24"><path d="M19 5 5 19M18 19H5V6" /></symbol>
+  <symbol id="sort" viewBox="0 0 24 24">
+    <path d="M8 4v16m-3-3 3 3 3-3M16 20V4m-3 3 3-3 3 3" />
+  </symbol>
+  <symbol id="undo" viewBox="0 0 24 24"><path d="M9 5 4 10l5 5M4 10h9a6 6 0 0 1 0 12h-2" /></symbol>
+  <symbol id="restart" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6" /></symbol>
+  <symbol id="play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z" /></symbol>
+  <symbol id="pause" viewBox="0 0 24 24"><path d="M9 5v14M15 5v14" /></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></symbol>
+</svg>
