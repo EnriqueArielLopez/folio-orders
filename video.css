@@ -1,0 +1,54 @@
+/* Narrated walkthroughs load only when the visitor chooses to play. */
+.video-demo {
+  margin-block: 20px;
+  border-block: 1px solid currentColor;
+  color: inherit;
+}
+.video-demo > summary {
+  cursor: pointer;
+  padding: 16px 0;
+  font:
+    500 14px/1.6 Roboto,
+    Arial,
+    sans-serif;
+}
+.video-demo > summary small {
+  margin-left: 12px;
+  font-size: 11px;
+  font-weight: 400;
+}
+.video-demo video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: #171715;
+}
+.video-demo video::cue {
+  color: #fff;
+  background: #171715ed;
+  font-family: Roboto, Arial, sans-serif;
+}
+.video-demo > p {
+  margin: 12px 0 18px;
+  font:
+    400 12px/1.7 Roboto,
+    Arial,
+    sans-serif;
+}
+.video-demo .video-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+}
+.video-links a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  padding-block: 6px;
+}
+@media (max-width: 480px) {
+  .video-demo > summary small {
+    display: block;
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,63 @@
+WEBVTT
+
+NOTE Narración sintética en español. Datos ficticios de demostración.
+
+1
+00:00:00.302 --> 00:00:03.393
+Folio reúne pedidos y entregas en un
+escritorio.
+
+2
+00:00:04.234 --> 00:00:08.459
+Esta demo usa datos ficticios,
+guardados solamente en el navegador.
+
+3
+00:00:10.002 --> 00:00:12.410
+Buscamos el pedido mil sesenta y ocho.
+
+4
+00:00:13.250 --> 00:00:17.914
+Tiene veinticuatro unidades pedidas,
+doce entregadas y doce pendientes.
+
+5
+00:00:19.335 --> 00:00:21.008
+Hoy entregamos seis más.
+
+6
+00:00:21.836 --> 00:00:26.474
+En la ficha escribimos dieciocho, porque
+el campo guarda la cantidad acumulada.
+
+7
+00:00:27.968 --> 00:00:30.479
+Al guardar, quedan seis por entregar.
+
+8
+00:00:31.385 --> 00:00:34.953
+El estado y los importes se recalculan
+con el mismo criterio.
+
+9
+00:00:36.435 --> 00:00:39.126
+Después podés filtrar por cliente o
+estado.
+
+10
+00:00:39.967 --> 00:00:43.935
+Fuera de compromiso reúne pendientes
+cuya fecha prometida ya pasó.
+
+11
+00:00:45.435 --> 00:00:48.565
+Exportar vista descarga todos los
+pedidos del filtro,
+
+12
+00:00:48.708 --> 00:00:50.588
+incluso los de otras páginas.
+
+13
+00:00:51.403 --> 00:00:53.643
+El archivo queda listo para continuar.

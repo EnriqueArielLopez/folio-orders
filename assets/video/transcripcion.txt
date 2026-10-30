@@ -1,0 +1,17 @@
+1. Un escritorio para seguir los pedidos
+Folio reúne pedidos y entregas en un escritorio. Esta demo usa datos ficticios, guardados solamente en el navegador.
+
+2. 24 pedidas · 12 entregadas · 12 pendientes
+Buscamos el pedido mil sesenta y ocho. Tiene veinticuatro unidades pedidas, doce entregadas y doce pendientes.
+
+3. La entrega se registra como cantidad acumulada
+Hoy entregamos seis más. En la ficha escribimos dieciocho, porque el campo guarda la cantidad acumulada.
+
+4. Guardar entrega y recalcular
+Al guardar, quedan seis por entregar. El estado y los importes se recalculan con el mismo criterio.
+
+5. Filtrar y priorizar lo pendiente
+Después podés filtrar por cliente o estado. Fuera de compromiso reúne pendientes cuya fecha prometida ya pasó.
+
+6. Exportar todos los pedidos del filtro
+Exportar vista descarga todos los pedidos del filtro, incluso los de otras páginas. El archivo queda listo para continuar.

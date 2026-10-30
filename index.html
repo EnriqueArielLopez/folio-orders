@@ -20,11 +20,12 @@
     />
     <link rel="preload" href="assets/roboto.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="preload" href="assets/montserrat.ttf" as="font" type="font/ttf" crossorigin />
-    <link rel="stylesheet" href="style.css?v=20261030-icons-1" />
-    <link rel="stylesheet" href="tutorial.css?v=20261030-icons-1" />
-    <link rel="stylesheet" href="identity.css?v=20261030-icons-1" />
-    <script type="module" src="src/app.js?v=20261030-icons-1"></script>
-    <script type="module" src="src/tutorial.js?v=20261030-icons-1"></script>
+    <link rel="stylesheet" href="style.css?v=20261030-video-1" />
+    <link rel="stylesheet" href="tutorial.css?v=20261030-video-1" />
+    <link rel="stylesheet" href="identity.css?v=20261030-video-1" />
+    <script type="module" src="src/app.js?v=20261030-video-1"></script>
+    <script type="module" src="src/tutorial.js?v=20261030-video-1"></script>
+    <link rel="stylesheet" href="video.css?v=20261030-video-1" />
   </head>
   <body>
     <a class="skip" href="#main">Saltar al contenido</a>
@@ -155,6 +156,39 @@
             >
           </button>
         </section>
+        <details class="video-demo" data-video-demo>
+          <summary>
+            Ver demo narrada de Folio<small>Español · Subtítulos disponibles</small>
+          </summary>
+          <video
+            controls
+            playsinline
+            preload="none"
+            width="1280"
+            height="720"
+            poster="assets/video/poster.jpg"
+            aria-label="Demo narrada de Folio"
+            aria-describedby="folio-video-description"
+          >
+            <source src="assets/video/demo.mp4" type="video/mp4" />
+            <track
+              src="assets/video/demo.es.vtt"
+              kind="captions"
+              srclang="es"
+              label="Español"
+              default
+            />
+            Tu navegador no puede reproducir este video. Podés descargarlo en el enlace de abajo.
+          </video>
+          <p id="folio-video-description">
+            Un recorrido explicado con capturas de la aplicación y diagramas animados. Datos
+            ficticios y narración sintética en español.
+          </p>
+          <p class="video-links">
+            <a href="assets/video/transcripcion.txt" download>Descargar transcripción</a
+            ><a href="assets/video/demo.mp4" download>Descargar video MP4</a>
+          </p>
+        </details>
         <div class="context-bar">
           <span><i></i> Datos de ejemplo · ARS · Sin IVA</span
           ><span>Corte de análisis: <strong>22 oct 2026</strong></span>

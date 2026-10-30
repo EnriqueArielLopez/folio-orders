@@ -1,0 +1,49 @@
+{
+  "project": "folio",
+  "voice": "es-AR-ElenaNeural",
+  "rate": "-3%",
+  "narration": "Synthetic Spanish narration via edge-tts 7.3.1 and Microsoft public TTS.",
+  "visuals": "Scene 01 is an actual application capture. Scenes 02–06 are clearly labeled explanatory diagrams with fictitious data; they are not screen recordings.",
+  "duration_seconds": 54.856576,
+  "captions": 13,
+  "format": "H264, yuv420p limited range, 1280x720 at 30 fps; AAC stereo 44.1 kHz; faststart",
+  "sha256": "8fdf70ff06b33fc0bf8497fc300fbf3ab7f035886e25c5f7eb259d69ac71bff2",
+  "scenes": [
+    {
+      "title": "Un escritorio para seguir los pedidos",
+      "text": "Folio reúne pedidos y entregas en un escritorio. Esta demo usa datos ficticios, guardados solamente en el navegador.",
+      "index": 1,
+      "duration": 9.7
+    },
+    {
+      "title": "24 pedidas · 12 entregadas · 12 pendientes",
+      "text": "Buscamos el pedido mil sesenta y ocho. Tiene veinticuatro unidades pedidas, doce entregadas y doce pendientes.",
+      "index": 2,
+      "duration": 9.333333
+    },
+    {
+      "title": "La entrega se registra como cantidad acumulada",
+      "text": "Hoy entregamos seis más. En la ficha escribimos dieciocho, porque el campo guarda la cantidad acumulada.",
+      "index": 3,
+      "duration": 8.633333
+    },
+    {
+      "title": "Guardar entrega y recalcular",
+      "text": "Al guardar, quedan seis por entregar. El estado y los importes se recalculan con el mismo criterio.",
+      "index": 4,
+      "duration": 8.466689
+    },
+    {
+      "title": "Filtrar y priorizar lo pendiente",
+      "text": "Después podés filtrar por cliente o estado. Fuera de compromiso reúne pendientes cuya fecha prometida ya pasó.",
+      "index": 5,
+      "duration": 9.0
+    },
+    {
+      "title": "Exportar todos los pedidos del filtro",
+      "text": "Exportar vista descarga todos los pedidos del filtro, incluso los de otras páginas. El archivo queda listo para continuar.",
+      "index": 6,
+      "duration": 9.7
+    }
+  ]
+}
