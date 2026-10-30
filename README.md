@@ -111,7 +111,7 @@ No hay que instalar paquetes ni compilar la aplicación. Abrir `index.html` con 
 
 ## Para desarrollar
 
-HTML, CSS y JavaScript con módulos nativos. La interfaz usa un escritorio de vidrio azul nocturno, una ilustración de rutas en SVG y controles con foco de teclado visible. En pantallas angostas, la tabla conserva sus columnas y permite desplazamiento horizontal. El efecto de vidrio tiene un fondo opaco de respaldo para navegadores sin `backdrop-filter`.
+HTML, CSS y JavaScript con módulos nativos. La interfaz usa un escritorio de operaciones azul oscuro, superficies opacas, cifras tabulares y controles con foco de teclado visible. En pantallas angostas, la tabla conserva sus columnas y permite desplazamiento horizontal. Los paneles de datos y la barra lateral no requieren filtros de desenfoque.
 
 Requisitos de validación: **Node 22 o 24 LTS+** y **Python 3.10+**. No hace falta `npm install`.
 
@@ -129,7 +129,6 @@ Si Python está instalado con otro nombre o ruta, definí `LOTE_PYTHON` con su e
 | `src/app.js` | Filtros, tabla, gráfico, ficha y sesión local |
 | `src/tutorial.js` / `src/tutorial-model.js` | Guía visual y pedido ficticio independiente de la sesión |
 | `style.css` / `identity.css` | Diseño adaptable y detalles visuales del escritorio |
-| `assets/dispatch-map.svg` | Ilustración original de paquetes y ruta de entrega |
 | `sql/schema.sql` | Modelo relacional de cabecera y posiciones, restricciones y resumen |
 | `scripts/analyze_sql.py` | Carga transaccional y consulta SQLite en memoria |
 | `tests/` | Pruebas de negocio, CSV y paridad con SQLite |
@@ -156,3 +155,10 @@ Folio combina **IBM Plex Sans** en controles, tablas y textos con **Barlow Conde
 - [Barlow Condensed](https://github.com/google/fonts/tree/main/ofl/barlowcondensed): peso SemiBold 600 en `assets/barlow-condensed-semibold.ttf`. Licencia SIL OFL en [OFL-Barlow-Condensed.txt](assets/OFL-Barlow-Condensed.txt).
 
 Los archivos TTF proceden del repositorio oficial Google Fonts y se conservan sin modificaciones.
+
+
+## Revisión de interfaz · 30 de octubre de 2026
+
+La interfaz prioriza datos y tareas: superficies más simples, jerarquía tipográfica y un enlace de retorno al portfolio que funciona también en la demo integrada. La tecla `/` lleva a la búsqueda cuando no se está editando otro campo ni hay un diálogo abierto. Los resultados de filtros y paginación se anuncian mediante una región de estado accesible.
+
+`src/workspace.js` contiene estas mejoras de navegación, separado de las reglas de negocio. El código del frontend usa un formato consistente definido en `.prettierrc.json` y `.editorconfig`; no se añadieron dependencias de runtime. Las guías mantienen sus ejemplos separados de la sesión de trabajo.
