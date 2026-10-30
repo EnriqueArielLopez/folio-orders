@@ -1,4 +1,5 @@
 import { icon } from './icons.js';
+import { initVideoDemos } from './video.js';
 import {
   CUTOFF,
   amounts,
@@ -13,6 +14,7 @@ import {
 import { sampleOrders } from './sample.js';
 import { initWorkspace } from './workspace.js';
 initWorkspace();
+initVideoDemos();
 const $ = (selector) => document.querySelector(selector);
 const escape = (value) =>
   String(value).replace(
