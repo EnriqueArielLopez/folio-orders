@@ -79,6 +79,24 @@ button:disabled {
 [hidden] {
   display: none !important;
 }
+/* Local line icons keep the same shape on desktop and mobile. */
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex: none;
+  vertical-align: -0.15em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.button > .icon,
+.view-order > .icon {
+  width: 16px;
+  height: 16px;
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -242,6 +260,7 @@ h2 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.4em;
   min-height: 44px;
   padding: 10px 15px;
   border-radius: 3px;
