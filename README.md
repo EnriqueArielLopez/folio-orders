@@ -111,7 +111,7 @@ No hay que instalar paquetes ni compilar la aplicación. Abrir `index.html` con 
 
 ## Para desarrollar
 
-HTML, CSS y JavaScript con módulos nativos. La interfaz usa un escritorio de operaciones azul oscuro, superficies opacas, cifras tabulares y controles con foco de teclado visible. En pantallas angostas, la tabla conserva sus columnas y permite desplazamiento horizontal. Los paneles de datos y la barra lateral no requieren filtros de desenfoque.
+HTML, CSS y JavaScript con módulos nativos. La interfaz usa un escritorio de pedidos sobre papel, tinta verde, cifras tabulares y controles con foco de teclado visible. La tabla ocupa el lugar principal; los gráficos quedan después de los pedidos. En pantallas angostas, la tabla conserva sus columnas y permite desplazamiento horizontal. Los paneles de datos y la barra lateral no requieren filtros de desenfoque.
 
 Requisitos de validación: **Node 22 o 24 LTS+** y **Python 3.10+**. No hace falta `npm install`.
 
@@ -129,6 +129,7 @@ Si Python está instalado con otro nombre o ruta, definí `LOTE_PYTHON` con su e
 | `src/app.js` | Filtros, tabla, gráfico, ficha y sesión local |
 | `src/tutorial.js` / `src/tutorial-model.js` | Guía visual y pedido ficticio independiente de la sesión |
 | `style.css` / `identity.css` | Diseño adaptable y detalles visuales del escritorio |
+| `tutorial.css` | Presentación aislada de la guía visual |
 | `sql/schema.sql` | Modelo relacional de cabecera y posiciones, restricciones y resumen |
 | `scripts/analyze_sql.py` | Carga transaccional y consulta SQLite en memoria |
 | `tests/` | Pruebas de negocio, CSV y paridad con SQLite |
@@ -149,12 +150,7 @@ La revisión de seguridad del 23 de octubre de 2026 reforzó los prefijos de fó
 
 ### Tipografías y licencias
 
-Folio combina **IBM Plex Sans** en controles, tablas y textos con **Barlow Condensed SemiBold** en el título, el logotipo y los valores principales. La jerarquía usa cifras tabulares y una composición industrial; las fuentes se sirven desde el repositorio, sin solicitudes a Google Fonts durante el uso.
-
-- [IBM Plex Sans](https://github.com/google/fonts/tree/main/ofl/ibmplexsans): archivo variable original `assets/ibm-plex-sans.ttf`, ejes de peso 100–700 y ancho 75–100 %. Licencia SIL OFL en [OFL-IBM-Plex-Sans.txt](assets/OFL-IBM-Plex-Sans.txt).
-- [Barlow Condensed](https://github.com/google/fonts/tree/main/ofl/barlowcondensed): peso SemiBold 600 en `assets/barlow-condensed-semibold.ttf`. Licencia SIL OFL en [OFL-Barlow-Condensed.txt](assets/OFL-Barlow-Condensed.txt).
-
-Los archivos TTF proceden del repositorio oficial Google Fonts y se conservan sin modificaciones.
+Folio usa **Montserrat** para títulos y marca, y **Roboto** para textos, controles y cifras. Las fuentes variables originales se sirven localmente. Sus licencias SIL OFL están en `assets/montserrat-OFL.txt` y `assets/roboto-OFL.txt`; los archivos proceden del repositorio oficial [Google Fonts](https://github.com/google/fonts).
 
 
 ## Revisión de interfaz · 30 de octubre de 2026
@@ -162,3 +158,5 @@ Los archivos TTF proceden del repositorio oficial Google Fonts y se conservan si
 La interfaz prioriza datos y tareas: superficies más simples, jerarquía tipográfica y un enlace de retorno al portfolio que funciona también en la demo integrada. La tecla `/` lleva a la búsqueda cuando no se está editando otro campo ni hay un diálogo abierto. Los resultados de filtros y paginación se anuncian mediante una región de estado accesible.
 
 `src/workspace.js` contiene estas mejoras de navegación, separado de las reglas de negocio. El código del frontend usa un formato consistente definido en `.prettierrc.json` y `.editorconfig`; no se añadieron dependencias de runtime. Las guías mantienen sus ejemplos separados de la sesión de trabajo.
+
+La revisión tipográfica posterior recupera el papel del proyecto dentro del portfolio: una identidad de pedidos, tabla antes que gráficos y guía de alto contraste en `tutorial.css`. Se preservan las instrucciones y las reglas originales.

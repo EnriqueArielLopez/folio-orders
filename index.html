@@ -8,7 +8,7 @@
       http-equiv="Content-Security-Policy"
       content="base-uri 'none'; object-src 'none'; form-action 'none'; script-src-attr 'none'"
     />
-    <meta name="theme-color" content="#091226" />
+    <meta name="theme-color" content="#f4f5ef" />
     <title>Folio — Pedidos & entregas</title>
     <meta
       name="description"
@@ -16,20 +16,15 @@
     />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23091226'/%3E%3Cpath d='M20 46V18H44M20 30H38' fill='none' stroke='%23c8ef7e' stroke-width='6'/%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23f4f5ef'/%3E%3Cpath d='M20 46V18H44M20 30H38' fill='none' stroke='%2322674f' stroke-width='6'/%3E%3C/svg%3E"
     />
-    <link rel="preload" href="assets/ibm-plex-sans.ttf" as="font" type="font/ttf" crossorigin />
-    <link
-      rel="preload"
-      href="assets/barlow-condensed-semibold.ttf"
-      as="font"
-      type="font/ttf"
-      crossorigin
-    />
-    <link rel="stylesheet" href="style.css?v=20261030-workspace" />
-    <link rel="stylesheet" href="identity.css?v=20261030-workspace" />
-    <script type="module" src="src/app.js"></script>
-    <script type="module" src="src/tutorial.js"></script>
+    <link rel="preload" href="assets/roboto.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="assets/montserrat.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="stylesheet" href="style.css?v=20261030-paper-2" />
+    <link rel="stylesheet" href="tutorial.css?v=20261030-paper-2" />
+    <link rel="stylesheet" href="identity.css?v=20261030-paper-2" />
+    <script type="module" src="src/app.js?v=20261030-paper-2"></script>
+    <script type="module" src="src/tutorial.js?v=20261030-paper-2"></script>
   </head>
   <body>
     <a class="skip" href="#main">Saltar al contenido</a>
@@ -37,24 +32,27 @@
       <a class="logo" href="./" aria-label="Folio, inicio"
         ><span class="desk-mark" aria-hidden="true"
           ><svg viewBox="0 0 34 34" fill="none">
-            <path d="M7 27V7H27M7 17H22" stroke="#c8ef7e" stroke-width="3" />
-            <path d="M17 27H27V17" stroke="#9fbef7" stroke-width="1.5" /></svg></span
+            <path d="M7 27V7H27M7 17H22" stroke="#22674f" stroke-width="3" />
+            <path d="M17 27H27V17" stroke="#22674f" stroke-width="1.5" /></svg></span
         ><span>folio</span></a
       >
-      <p class="sidebar-label">ESCRITORIO DE OPERACIONES</p>
+      <p class="sidebar-label">PEDIDOS Y ENTREGAS</p>
       <a class="nav active" href="#main" aria-current="page"
         ><svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
           <rect x="2" y="3" width="16" height="14" rx="2" stroke="currentColor" />
           <path d="M2 8H18M8 8V17" stroke="currentColor" /></svg
         ><span>Pedidos & entregas</span><i>28</i></a
       >
+      <div class="project-attribution">
+        <strong>Un proyecto de Ariel López.</strong>Seguimiento de pedidos, de la planilla a la
+        entrega.
+      </div>
       <div class="side-bottom">
         <span class="demo-dot"></span>
         <p>Espacio de demostración<br /><small>Empresas y operaciones ficticias</small></p>
         <a href="https://github.com/EnriqueArielLopez/folio-orders" target="_blank" rel="noopener"
           >Guía de uso y código ↗</a
         >
-        <p class="author">Un proyecto de Ariel López</p>
       </div>
     </aside>
     <div class="workspace">
@@ -79,7 +77,7 @@
       <main id="main">
         <div class="page-head">
           <div>
-            <p class="overline">CONTROL DE PEDIDOS / 01</p>
+            <p class="overline">FOLIO / SEGUIMIENTO DE PEDIDOS</p>
             <h1>Pedidos y entregas<span>.</span></h1>
             <p class="subtitle">Para ventas, administración y quienes preparan entregas.</p>
           </div>
@@ -145,51 +143,7 @@
             <strong id="metric-overdue">—</strong><small>Ver pendientes vencidos</small>
           </button>
         </section>
-        <section class="insights" aria-label="Evolución y avance">
-          <article class="chart-panel">
-            <div class="panel-heading">
-              <div>
-                <h2><span class="panel-number" aria-hidden="true">01</span>Ritmo de pedidos</h2>
-                <p>Valor neto por semana de alta</p>
-              </div>
-              <span>ARS</span>
-            </div>
-            <div
-              class="chart-scroll"
-              tabindex="0"
-              role="region"
-              aria-label="Gráfico de pedidos; desplazá horizontalmente para ver todos los períodos"
-            >
-              <div
-                id="chart"
-                class="chart"
-                role="img"
-                aria-label="Valor de pedidos por semana"
-              ></div>
-            </div>
-            <p class="chart-note">Importes de pedidos. No representan facturación ni cobros.</p>
-          </article>
-          <article class="delivery-panel">
-            <div class="panel-heading">
-              <div>
-                <h2><span class="panel-number" aria-hidden="true">02</span>Avance de entrega</h2>
-                <p>Sobre el valor de pedidos activos</p>
-              </div>
-              <svg class="route-icon" aria-hidden="true" viewBox="0 0 28 28" fill="none">
-                <path d="M4 21H12V7H23M18 2L23 7L18 12" stroke="currentColor" stroke-width="1.5" />
-                <circle cx="4" cy="21" r="2.5" fill="#c8ef7e" />
-              </svg>
-            </div>
-            <div class="delivery-number">
-              <strong id="delivery-percent">—</strong><span>del valor entregado</span>
-            </div>
-            <div class="progress-track"><div id="delivery-bar"></div></div>
-            <div class="delivery-legend">
-              <span><i></i>Entregado</span><span><i></i>Pendiente</span>
-            </div>
-            <p id="delivery-description"></p>
-          </article>
-        </section>
+
         <section class="orders-panel" aria-labelledby="orders-title">
           <div class="orders-heading">
             <div>
@@ -263,6 +217,51 @@
               ><button id="next" aria-label="Página siguiente">→</button>
             </div>
           </div>
+        </section>
+        <section class="insights" aria-label="Evolución y avance">
+          <article class="chart-panel">
+            <div class="panel-heading">
+              <div>
+                <h2><span class="panel-number" aria-hidden="true">01</span>Ritmo de pedidos</h2>
+                <p>Valor neto por semana de alta</p>
+              </div>
+              <span>ARS</span>
+            </div>
+            <div
+              class="chart-scroll"
+              tabindex="0"
+              role="region"
+              aria-label="Gráfico de pedidos; desplazá horizontalmente para ver todos los períodos"
+            >
+              <div
+                id="chart"
+                class="chart"
+                role="img"
+                aria-label="Valor de pedidos por semana"
+              ></div>
+            </div>
+            <p class="chart-note">Importes de pedidos. No representan facturación ni cobros.</p>
+          </article>
+          <article class="delivery-panel">
+            <div class="panel-heading">
+              <div>
+                <h2><span class="panel-number" aria-hidden="true">02</span>Avance de entrega</h2>
+                <p>Sobre el valor de pedidos activos</p>
+              </div>
+              <svg class="route-icon" aria-hidden="true" viewBox="0 0 28 28" fill="none">
+                <path d="M4 21H12V7H23M18 2L23 7L18 12" stroke="currentColor" stroke-width="1.5" />
+                <circle cx="4" cy="21" r="2.5" fill="#22674f" />
+              </svg>
+            </div>
+            <div class="delivery-number">
+              <strong id="delivery-percent">—</strong><span>del valor entregado</span>
+            </div>
+            <div class="progress-track"><div id="delivery-bar"></div></div>
+            <div class="delivery-legend">
+              <span><i></i>Entregado</span><span><i></i>Pendiente</span>
+            </div>
+            <p id="delivery-description"></p>
+          </article>
         </section>
         <footer>
           <p>Los archivos se procesan en este navegador.<br />No se envían a un servidor.</p>
