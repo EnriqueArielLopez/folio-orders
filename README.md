@@ -185,3 +185,9 @@ Se reemplaza la dirección anterior por una interfaz de trabajo con Manrope regu
 ## Ajuste de color y tipografía · 1 de noviembre de 2026
 
 Folio recupera verde salvia en la navegación y bandas de tabla, con fondo marfil y títulos de peso medio. Se conserva la composición compacta de la segunda revisión. No cambian reglas ni interacciones.
+
+## Identidad propia y movimiento · 1 de noviembre de 2026
+
+Folio combina negro, naranja y papel claro. Bricolage Grotesque identifica la marca y los títulos; Manrope conserva la lectura de datos y controles. El símbolo del folio plegado y la ilustración de paquete/remito son SVG originales del proyecto (`assets/brand-mark.svg` y `assets/brand-art.svg`). Las fuentes se sirven localmente con licencias OFL (`assets/bricolage-OFL.txt` y `assets/manrope-OFL.txt`).
+
+El dibujo representa una entrega de forma ilustrativa; no muestra el estado de los pedidos. Se puede pausar con **Pausar dibujo**. El movimiento se detiene fuera de pantalla, al ocultar la pestaña o si el sistema solicita movimiento reducido. `src/brand-motion.js` administra solo esta presentación, separada de las reglas de pedidos.
