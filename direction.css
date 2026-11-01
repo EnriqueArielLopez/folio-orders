@@ -1,10 +1,10 @@
 /* A compact working interface: neutral typography and one operational accent. */
 :root {
-  --paper: #f8f9fa;
+  --paper: #f5f5ed;
   --surface: #fff;
-  --ink: #25282c;
-  --muted: #667079;
-  --line: #e1e5e8;
+  --ink: #28372d;
+  --muted: #63715f;
+  --line: #dce3d5;
   --accent: #28644d;
   --display: Manrope, Arial, sans-serif;
 }
@@ -40,7 +40,7 @@ body {
   border-color: var(--line);
 }
 .nav {
-  background: #eef4f0;
+  background: #e1eadb;
   border: 0;
   border-radius: 6px;
   padding: 12px;
@@ -62,8 +62,8 @@ main {
   padding-top: 32px;
 }
 h1 {
-  font: 400 clamp(28px, 2.7vw, 40px) / 1.25 var(--ui);
-  letter-spacing: -0.035em;
+  font: 500 clamp(28px, 2.7vw, 40px) / 1.25 var(--ui);
+  letter-spacing: -0.025em;
 }
 h2 {
   font-weight: 500;
@@ -102,8 +102,8 @@ h2 {
   overflow: hidden;
 }
 .metrics strong {
-  font-weight: 400;
-  letter-spacing: -0.035em;
+  font-weight: 500;
+  letter-spacing: -0.025em;
 }
 .metrics p,
 .metrics small {
@@ -138,7 +138,7 @@ table {
   font-size: 13px;
 }
 th {
-  background: #f7f9fa;
+  background: #edf2e7;
   color: #64717a;
   font-weight: 500;
   padding-block: 14px;
@@ -171,4 +171,15 @@ td {
   .metrics small {
     font-size: 11px;
   }
+}
+
+.sidebar {
+  background: #e9efdf;
+}
+.logo {
+  font-weight: 600;
+  color: #315746;
+}
+.metrics strong {
+  font-weight: 500;
 }

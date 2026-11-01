@@ -181,3 +181,7 @@ Validado en Local: 26 pruebas; búsqueda de pedido, registro de entrega 12 → 1
 ## Segunda revisión visual · 1 de noviembre de 2026
 
 Se reemplaza la dirección anterior por una interfaz de trabajo con Manrope regular, espaciado tipográfico moderado, títulos de 28–40 px, controles legibles y superficies neutras. `direction.css` reúne esta dirección visual. La revisión toma las proporciones tipográficas de Nexus Creative y distingue la presentación del portfolio de la densidad necesaria en una aplicación. Las reglas y los datos no cambian.
+
+## Ajuste de color y tipografía · 1 de noviembre de 2026
+
+Folio recupera verde salvia en la navegación y bandas de tabla, con fondo marfil y títulos de peso medio. Se conserva la composición compacta de la segunda revisión. No cambian reglas ni interacciones.
