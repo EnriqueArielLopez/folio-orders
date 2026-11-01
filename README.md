@@ -205,3 +205,7 @@ La revisión del 01/11/2026 usa Newsreader en la marca y los títulos e IBM Plex
 La vista inicial agrupa todos los pedidos filtrados por estado; cada tarjeta abre la ficha lateral real para registrar entregas. El selector **Lista** conserva la tabla paginada. Los filtros, importación, exportación y persistencia existentes se comparten entre ambas vistas. Los gráficos se consultan en **Ver evolución y avance de entregas**. No hay arrastre ficticio ni cambios en las reglas de cálculo.
 
 Validación local: 26 pruebas, tablero/lista, filtro por pedido, apertura de ficha y entrega parcial/completa restaurada al valor original. Revisión visual a 1280 px y 390 px, sin desbordamiento general.
+
+## Identidad de despacho · 01/11/2026
+
+Folio usa una navegación naranja, Bricolage en títulos e importes, IBM Plex Sans en controles y tarjetas que remiten a comprobantes de entrega. El tablero conserva sus reglas y ficha lateral. Las tarjetas aparecen una vez con una transición corta, desactivada con movimiento reducido. Captura actualizada. Validación: 26 pruebas, tablero, ficha y revisión de escritorio; el código de dominio no cambió.
