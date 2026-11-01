@@ -191,3 +191,6 @@ Folio recupera verde salvia en la navegación y bandas de tabla, con fondo marfi
 Folio combina negro, naranja y papel claro. Bricolage Grotesque identifica la marca y los títulos; Manrope conserva la lectura de datos y controles. El símbolo del folio plegado y la ilustración de paquete/remito son SVG originales del proyecto (`assets/brand-mark.svg` y `assets/brand-art.svg`). Las fuentes se sirven localmente con licencias OFL (`assets/bricolage-OFL.txt` y `assets/manrope-OFL.txt`).
 
 El dibujo representa una entrega de forma ilustrativa; no muestra el estado de los pedidos. Se puede pausar con **Pausar dibujo**. El movimiento se detiene fuera de pantalla, al ocultar la pestaña o si el sistema solicita movimiento reducido. `src/brand-motion.js` administra solo esta presentación, separada de las reglas de pedidos.
+# Ejemplo interactivo de entrega
+
+La portada permite recorrer un pedido ficticio de 24 unidades entre Pendiente, Parcial y Entregado. La barra y el texto anuncian 0, 12 y 24 unidades entregadas. Es una demostración independiente: no modifica pedidos, importes ni almacenamiento. Los botones admiten teclado y los cambios se anuncian con `aria-live`. Las transiciones respetan movimiento reducido y la pausa del dibujo. Validado junto con las 26 pruebas del proyecto.

@@ -19,11 +19,13 @@
     <link rel="stylesheet" href="style.css?v=20261101-type-1" />
     <link rel="stylesheet" href="tutorial.css?v=20261101-type-1" />
     <link rel="stylesheet" href="identity.css?v=20261101-type-1" />
-    <script type="module" src="src/app.js?v=20261101-identities-1"></script>
+    <script type="module" src="src/app.js?v=20261101-assembly-1"></script>
     <script type="module" src="src/tutorial.js?v=20261101-type-1"></script>
-    <link rel="stylesheet" href="direction.css?v=20261101-identities-1" />
+    <link rel="stylesheet" href="direction.css?v=20261101-assembly-1" />
     <link rel="stylesheet" href="video.css?v=20261101-type-1" />
-    <script type="module" src="src/brand-motion.js?v=20261101-identities-1"></script>
+    <script type="module" src="src/brand-motion.js?v=20261101-assembly-1"></script>
+    <link rel="stylesheet" href="brand-lab.css?v=20261101-assembly-1" />
+    <script type="module" src="src/brand-lab.js?v=20261101-assembly-1"></script>
   </head>
   <body>
     <a class="skip" href="#main">Saltar al contenido</a>
@@ -100,6 +102,18 @@
             <span class="brand-kicker">DEL PEDIDO A LA ENTREGA</span>
             <div class="brand-word" aria-hidden="true">
               foli<span class="letter-o">o</span><span class="brand-dot">.</span>
+            </div>
+            <div class="order-play" aria-label="Ejemplo de avance de una entrega">
+              <p class="play-kicker">UN PEDIDO / 24 UNIDADES</p>
+              <div class="delivery-track" aria-hidden="true">
+                <i></i><i></i><i></i><i></i><i></i><i></i>
+              </div>
+              <div class="delivery-steps" role="group" aria-label="Probar estados del pedido">
+                <button type="button" data-delivery="0" aria-pressed="true">Pendiente</button>
+                <button type="button" data-delivery="12" aria-pressed="false">Parcial</button>
+                <button type="button" data-delivery="24" aria-pressed="false">Entregado</button>
+              </div>
+              <p class="delivery-caption" aria-live="polite">0 entregadas · 24 pendientes</p>
             </div>
           </div>
           <figure class="brand-drawing">
@@ -182,7 +196,7 @@
                 <path d="M-12 0h24M0-12v24m-8-8 16 16m-16 0L8-8" />
               </g>
             </svg>
-            <figcaption>Esquema ilustrativo de una entrega</figcaption>
+            <figcaption>Pedido de ejemplo</figcaption>
           </figure>
           <button class="brand-motion-toggle" data-brand-motion aria-pressed="false" hidden>
             Pausar dibujo
