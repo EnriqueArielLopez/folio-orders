@@ -152,7 +152,7 @@ La revisión de seguridad del 23 de octubre de 2026 reforzó los prefijos de fó
 
 ### Tipografías y licencias
 
-Folio usa **Newsreader** para el título y la marca, y **Manrope** para textos, controles y cifras. Las fuentes variables originales se sirven localmente. Sus licencias SIL OFL están en `assets/newsreader-OFL.txt` y `assets/manrope-OFL.txt`; los archivos proceden del repositorio oficial [Google Fonts](https://github.com/google/fonts).
+Folio usa **Manrope** para títulos, marca, textos, controles y cifras. Newsreader se conserva como recurso de la revisión anterior. Las fuentes variables originales se sirven localmente. Sus licencias SIL OFL están en `assets/newsreader-OFL.txt` y `assets/manrope-OFL.txt`; los archivos proceden del repositorio oficial [Google Fonts](https://github.com/google/fonts).
 
 
 ## Revisión de interfaz · 30 de octubre de 2026
