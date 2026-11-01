@@ -1,3 +1,9 @@
+@font-face {
+  font-family: ArchivoNarrow;
+  src: url('assets/archivo-narrow.ttf') format('truetype');
+  font-weight: 400 700;
+  font-display: swap;
+}
 /* Folio is an order workspace: queue, status lanes and a delivery drawer. */
 .app-explainer {
   border: 0;
@@ -56,7 +62,7 @@ body {
   border-color: #c15c36;
 }
 .sidebar .logo {
-  font-family: Bricolage, PlexSans, sans-serif;
+  font-family: ArchivoNarrow, PlexSans, sans-serif;
   font-size: 34px;
   font-weight: 650;
   color: #241f19;
@@ -404,7 +410,7 @@ td {
 .page-head h1,
 .orders-heading h2,
 #detail-title {
-  font-family: Bricolage, PlexSans, sans-serif;
+  font-family: ArchivoNarrow, PlexSans, sans-serif;
   font-weight: 700;
   letter-spacing: -0.045em;
 }
@@ -444,7 +450,7 @@ td {
 }
 .metrics strong,
 .metrics .metric-value strong {
-  font-family: Bricolage, sans-serif;
+  font-family: ArchivoNarrow, sans-serif;
   font-size: 28px;
   font-weight: 600;
 }
@@ -498,7 +504,7 @@ td {
   font-weight: 600;
 }
 .order-amount {
-  font-family: Bricolage, sans-serif;
+  font-family: ArchivoNarrow, sans-serif;
   font-weight: 500;
 }
 .order-track {
@@ -574,5 +580,48 @@ td {
   .metrics article,
   .metrics > button {
     padding: 12px;
+  }
+}
+
+.sidebar .logo {
+  font-family: ArchivoNarrow, sans-serif;
+  text-transform: uppercase;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+.page-head h1 {
+  font-family: ArchivoNarrow, sans-serif;
+  text-transform: uppercase;
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  line-height: 1.05;
+}
+.orders-heading h2,
+#detail-title {
+  font-family: ArchivoNarrow, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.metrics strong,
+.metrics .metric-value strong,
+.order-amount {
+  font-family: PlexSans, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.order-card-top strong {
+  letter-spacing: 0.02em;
+}
+.order-customer {
+  font-weight: 500;
+}
+@media (max-width: 680px) {
+  .sidebar .logo {
+    font-size: 36px;
+  }
+  .page-head h1 {
+    font-size: 34px;
   }
 }

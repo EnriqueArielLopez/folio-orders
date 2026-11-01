@@ -209,3 +209,7 @@ Validación local: 26 pruebas, tablero/lista, filtro por pedido, apertura de fic
 ## Identidad de despacho · 01/11/2026
 
 Folio usa una navegación naranja, Bricolage en títulos e importes, IBM Plex Sans en controles y tarjetas que remiten a comprobantes de entrega. El tablero conserva sus reglas y ficha lateral. Las tarjetas aparecen una vez con una transición corta, desactivada con movimiento reducido. Captura actualizada. Validación: 26 pruebas, tablero, ficha y revisión de escritorio; el código de dominio no cambió.
+
+## Tipografía de comprobantes · 01/11/2026
+
+La marca y los títulos usan Archivo Narrow (Omnibus-Type), con licencia OFL local en assets. Se retiró Bricolage de la dirección actual. Los importes vuelven a IBM Plex Sans para leerlos con facilidad. Se conserva la estructura y las interacciones del tablero; nueva captura de escritorio.
