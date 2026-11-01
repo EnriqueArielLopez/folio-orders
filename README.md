@@ -213,3 +213,9 @@ Folio usa una navegación naranja, Bricolage en títulos e importes, IBM Plex Sa
 ## Tipografía de comprobantes · 01/11/2026
 
 La marca y los títulos usan Archivo Narrow (Omnibus-Type), con licencia OFL local en assets. Se retiró Bricolage de la dirección actual. Los importes vuelven a IBM Plex Sans para leerlos con facilidad. Se conserva la estructura y las interacciones del tablero; nueva captura de escritorio.
+
+## Atajos y preparación de entregas · 01/11/2026
+
+Los filtros rápidos Todos/Pendientes/Parciales/Entregados usan el mismo filtro de estado que el selector y sincronizan aria-pressed. En la ficha, +1, +6 y Completar preparan la cantidad; no persisten nada hasta Guardar entrega. Respetan el máximo del material y se omiten en pedidos cancelados. El borrador anuncia unidades entregadas y pendientes. Tarjetas y controles tienen profundidad discreta, estados de foco y respuesta al pulsar.
+
+Validación local: 26 pruebas, filtro Parciales (5), preparación 12 → 18 → 24 sin sobreentrega, guardado de 18 y restauración de 12. Revisión móvil de la ficha y controles.

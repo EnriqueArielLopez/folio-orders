@@ -1,3 +1,4 @@
+import { enhanceDeliveryControls } from './delivery-controls.js';
 import { createOrderBoard } from './order-board.js';
 import { icon } from './icons.js';
 import { initVideoDemos } from './video.js';
@@ -154,6 +155,14 @@ function render() {
   const list = invalidDates ? [] : visibleOrders();
   const totals = summarize(list);
   renderBoard(list);
+  document
+    .querySelectorAll('[data-status-shortcut]')
+    .forEach((button) =>
+      button.setAttribute(
+        'aria-pressed',
+        String(button.dataset.statusShortcut === $('#status').value),
+      ),
+    );
   $('#metric-booked').textContent = money(totals.booked);
   $('#metric-pending').textContent = money(totals.pending);
   $('#metric-count').textContent = totals.count;
@@ -208,6 +217,7 @@ function openDetail(id) {
   const value = amounts(order);
   $('#detail-content').innerHTML =
     `<h2 id="detail-title">${escape(order.id)}</h2><p class="subtitle">${escape(order.customer)} · ${escape(order.region)}</p><span class="status ${status(order).toLowerCase()}">${status(order)}</span><div class="detail-info"><div><small>Fecha de alta</small><strong>${date(order.date)}</strong></div><div><small>Compromiso</small><strong>${date(order.due)}</strong></div><div><small>Valor neto</small><strong>${money(value.total)}</strong></div></div><p class="subtitle">Registrá la cantidad acumulada entregada por material. Los importes se recalculan al guardar.</p><form id="delivery-form"><div class="detail-lines">${order.lines.map((line, index) => `<div class="detail-line"><div><p>${escape(line.description)}</p><small>${escape(line.sku)} · ${line.quantity} un. × ${money(line.unitPriceCents)}</small></div><label>Entregado de ${line.quantity}<input aria-label="Entrega acumulada ${escape(line.sku)}" name="delivery-${index}" type="number" min="0" max="${line.quantity}" step="1" required value="${line.delivered}" ${order.cancelled ? 'disabled' : ''}></label></div>`).join('')}</div><p id="detail-error" role="alert" class="error" hidden></p><div class="detail-actions"><button type="button" class="quiet" id="cancel-order">${order.cancelled ? 'Reactivar pedido' : 'Cancelar pedido'}</button><button class="button primary" ${order.cancelled ? 'disabled' : ''}>Guardar entrega</button></div></form>`;
+  enhanceDeliveryControls($('#detail-content'));
   if (!$('#detail').open) {
     $('#detail').showModal();
     document.documentElement.style.overflow = 'hidden';

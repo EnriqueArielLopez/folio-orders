@@ -27,6 +27,29 @@ export function createOrderBoard(openDetail) {
   switcher.innerHTML =
     '<button type="button" data-order-view="board" aria-pressed="true">Por estado</button><button type="button" data-order-view="list" aria-pressed="false">Lista</button>';
   panel.querySelector('.orders-heading').append(switcher);
+  const shortcuts = document.createElement('div');
+  shortcuts.className = 'status-shortcuts';
+  shortcuts.setAttribute('role', 'group');
+  shortcuts.setAttribute('aria-label', 'Filtrar pedidos por estado');
+  [
+    ['', 'Todos'],
+    ['Pendiente', 'Pendientes'],
+    ['Parcial', 'Parciales'],
+    ['Entregado', 'Entregados'],
+  ].forEach(([value, label]) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.dataset.statusShortcut = value;
+    button.textContent = label;
+    button.setAttribute('aria-pressed', String(value === ''));
+    button.addEventListener('click', () => {
+      const select = document.querySelector('#status');
+      select.value = value;
+      select.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    shortcuts.append(button);
+  });
+  panel.querySelector('.filters').before(shortcuts);
   let view = 'board',
     lastOpened;
   function applyView() {

@@ -625,3 +625,168 @@ td {
     font-size: 34px;
   }
 }
+
+/* Controls feel like a dispatch desk, and provide real shortcuts. */
+.button,
+.primary,
+.view-switch {
+  border-radius: 8px;
+}
+.button.primary {
+  background: #29231e;
+  box-shadow: 0 3px 0 #15130f;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+.button.primary:hover:not(:disabled) {
+  background: #b64e2c;
+  color: #fff;
+  transform: translateY(-1px);
+}
+.button.primary:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+.status-shortcuts {
+  display: flex;
+  gap: 7px;
+  margin: 18px 0 0;
+  flex-wrap: wrap;
+}
+.status-shortcuts button {
+  border: 1px solid #d2c7b4;
+  background: #fffaf1;
+  color: #66574a;
+  border-radius: 24px;
+  padding: 8px 15px;
+  font-size: 12px;
+  min-height: 36px;
+  transition:
+    background 0.18s,
+    transform 0.18s;
+}
+.status-shortcuts button:before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c9b99e;
+  margin-right: 7px;
+}
+.status-shortcuts button[aria-pressed='true'] {
+  background: #322b23;
+  color: #fff4e5;
+  border-color: #322b23;
+}
+.status-shortcuts button[aria-pressed='true']:before {
+  background: #ee936c;
+}
+.status-shortcuts button:hover {
+  transform: translateY(-2px);
+}
+.order-card {
+  border: 1px solid #dccfba;
+  border-left: 3px solid #c2ae8b;
+  border-radius: 9px;
+  box-shadow: 0 3px 8px #4a321209;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.order-card:hover,
+.order-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px #4a321218;
+}
+.order-card:after {
+  content: 'Abrir pedido ↗';
+  display: block;
+  font-size: 10px;
+  color: #a64d2c;
+  border-top: 1px solid #e8dfd1;
+  margin-top: 14px;
+  padding-top: 8px;
+}
+.state-entregado .order-card {
+  border-left-color: #638779;
+}
+.state-parcial .order-card {
+  border-left-color: #d66b3f;
+}
+.board-column h3 {
+  font-size: 13px;
+}
+.board-count {
+  border-radius: 12px;
+  padding: 2px 8px;
+}
+.detail-line {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  border-radius: 10px;
+  background: #f4eee1;
+  border: 1px solid #e1d4bf;
+}
+.delivery-shortcuts {
+  display: flex;
+  gap: 6px;
+  grid-column: 1/-1;
+}
+.delivery-shortcuts button {
+  border: 1px solid #cbb99c;
+  background: #fffaf1;
+  border-radius: 7px;
+  padding: 7px 14px;
+  font-size: 12px;
+  min-height: 36px;
+  box-shadow: 0 2px 0 #d9c9ac;
+}
+.delivery-shortcuts button:last-child {
+  background: #e78156;
+  border-color: #b6633e;
+  color: #2c2118;
+}
+.delivery-shortcuts button:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+.delivery-shortcuts button:disabled {
+  opacity: 0.45;
+}
+.delivery-draft {
+  grid-column: 1/-1;
+  font-size: 11px;
+  color: #6f604d;
+}
+.detail-actions .primary {
+  min-height: 44px;
+}
+@media (max-width: 680px) {
+  .status-shortcuts {
+    gap: 6px;
+  }
+  .status-shortcuts button {
+    padding: 7px 11px;
+    font-size: 11px;
+  }
+  .detail-line {
+    grid-template-columns: 1fr;
+  }
+  .delivery-shortcuts {
+    flex-wrap: wrap;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .status-shortcuts button,
+  .order-card,
+  .button.primary {
+    transition: none;
+  }
+  .status-shortcuts button:hover,
+  .order-card:hover {
+    transform: none;
+  }
+}
