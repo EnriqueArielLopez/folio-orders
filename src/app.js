@@ -1,3 +1,4 @@
+import { createOrderBoard } from './order-board.js';
 import { icon } from './icons.js';
 import { initVideoDemos } from './video.js';
 import {
@@ -143,6 +144,7 @@ function renderChart(list) {
       : 'Sin datos para el gráfico',
   );
 }
+const renderBoard = createOrderBoard(openDetail);
 function render() {
   $('.context-bar>span:first-child').innerHTML =
     '<i></i> ' + escape(sourceLabel) + ' · ARS · Sin IVA';
@@ -151,6 +153,7 @@ function render() {
   $('#filter-error').textContent = 'La fecha inicial debe ser anterior o igual a la final.';
   const list = invalidDates ? [] : visibleOrders();
   const totals = summarize(list);
+  renderBoard(list);
   $('#metric-booked').textContent = money(totals.booked);
   $('#metric-pending').textContent = money(totals.pending);
   $('#metric-count').textContent = totals.count;

@@ -197,3 +197,11 @@ La portada permite recorrer un pedido ficticio de 24 unidades entre Pendiente, P
 # Dirección editorial actual
 
 La revisión del 01/11/2026 usa Newsreader en la marca y los títulos e IBM Plex Sans en tablas y controles. La cabecera de documento, los tonos papel y terracota y la navegación clara se definen en `workspace.css`. Se conserva el ejemplo interactivo y el flujo de pedidos. Fuentes locales oficiales Google Fonts y licencias OFL en assets. Validación: 26 pruebas y revisión de escritorio/móvil a 390 px.
+
+## Espacio de pedidos actual · 1 de noviembre de 2026
+
+`product.css` reemplaza la dirección editorial anterior: navegación negra, naranja discreto, marca Bricolage y controles IBM Plex Sans. La cabecera ilustrada anterior queda oculta para priorizar los pedidos.
+
+La vista inicial agrupa todos los pedidos filtrados por estado; cada tarjeta abre la ficha lateral real para registrar entregas. El selector **Lista** conserva la tabla paginada. Los filtros, importación, exportación y persistencia existentes se comparten entre ambas vistas. Los gráficos se consultan en **Ver evolución y avance de entregas**. No hay arrastre ficticio ni cambios en las reglas de cálculo.
+
+Validación local: 26 pruebas, tablero/lista, filtro por pedido, apertura de ficha y entrega parcial/completa restaurada al valor original. Revisión visual a 1280 px y 390 px, sin desbordamiento general.
