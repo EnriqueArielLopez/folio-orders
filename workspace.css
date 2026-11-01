@@ -1,0 +1,243 @@
+@font-face {
+  font-family: PlexSans;
+  src: url('assets/ibm-plex-sans.ttf') format('truetype');
+  font-weight: 100 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: FolioEditorial;
+  src: url('assets/newsreader.ttf') format('truetype');
+  font-weight: 200 800;
+  font-display: swap;
+}
+:root {
+  --ui: PlexSans, Arial, sans-serif;
+  --accent: #a53c26;
+  --ink: #28231e;
+  --muted: #75695c;
+  font-family: PlexSans, Arial, sans-serif;
+  color-scheme: light;
+}
+body {
+  background: #f0e9de;
+  font-family: PlexSans, Arial, sans-serif;
+  color: #28231e;
+}
+.sidebar .logo {
+  font-family: FolioEditorial, Georgia, serif;
+  font-size: 44px;
+  font-weight: 450;
+  color: #28231e;
+  letter-spacing: -.045em;
+}
+.sidebar .project-attribution, .sidebar .project-attribution strong, .sidebar .side-bottom a {
+  color: #5f5141;
+}
+.sidebar .nav.active { background:#c8b394;color:#28231e; }
+.sidebar {
+  background: #e5d9c7;
+  color: #28231e;
+  border-right: 1px solid #bfb19c;
+}
+.sidebar .brand {
+  font-family: FolioEditorial, Georgia, serif;
+  font-size: 42px;
+  font-weight: 450;
+  color: #28231e;
+  letter-spacing: -0.045em;
+}
+.sidebar .brand .brand-dot {
+  color: #a53c26;
+}
+.sidebar nav a,
+.sidebar .nav-item {
+  color: #28231e;
+}
+.sidebar nav a.active,
+.sidebar nav a[aria-current],
+.sidebar .nav-item.active {
+  background: #c8b394;
+  color: #28231e;
+  border-radius: 0;
+}
+.sidebar .sidebar-label,
+.sidebar p,
+.sidebar small,
+.sidebar footer,
+.sidebar .sidebar-footer {
+  color: #685c4e;
+}
+.topbar {
+  background: #f0e9de;
+  border-bottom: 1px solid #c7baaa;
+  color: #5b5146;
+}
+.folio-brandboard {
+  background: transparent;
+  color: #28231e;
+  border-top: 2px solid #28231e;
+  border-bottom: 1px solid #b9a88e;
+  min-height: 265px;
+  padding: 26px 0 24px;
+  grid-template-columns: 1.25fr 0.75fr;
+  margin-top: 8px;
+}
+.brand-kicker {
+  color: #9b3c27;
+  letter-spacing: 0.12em;
+  font:
+    500 10px PlexSans,
+    Arial,
+    sans-serif;
+}
+.folio-brandboard .brand-word {
+  font:
+    450 128px/0.9 FolioEditorial,
+    Georgia,
+    serif;
+  letter-spacing: -0.055em;
+  margin-top: 14px;
+}
+.brand-word .brand-dot {
+  color: #a53c26;
+}
+.folio-brandboard .brand-drawing {
+  max-width: 340px;
+  justify-self: end;
+  color: #66513d;
+  transform: rotate(-3deg);
+}
+.brand-drawing figcaption {
+  color: #75695c;
+}
+.brand-motion-toggle {
+  color: #5d4f40;
+}
+.order-play {
+  max-width: 370px;
+  margin-top: 22px;
+}
+.play-kicker {
+  color: #75695c;
+}
+.delivery-track i {
+  background: #d6c9b5;
+  border-color: #b8a58a;
+  height: 9px;
+  transform: none;
+}
+.delivery-track i.is-delivered {
+  background: #a53c26;
+  border-color: #a53c26;
+  transform: none;
+}
+.delivery-steps button {
+  font-family: PlexSans, Arial, sans-serif;
+  font-size: 13px;
+  color: #75695c;
+}
+.delivery-steps button[aria-pressed='true'] {
+  color: #9b3c27;
+  border-color: #9b3c27;
+}
+.delivery-caption {
+  color: #5b5146;
+  font-family: PlexSans, Arial, sans-serif;
+}
+.page-head h1 {
+  font:
+    450 clamp(34px, 3.2vw, 48px) / 1.12 FolioEditorial,
+    Georgia,
+    serif;
+  letter-spacing: -0.025em;
+}
+.page-head {
+  border-color: #c7baaa;
+}
+h2 {
+  font-family: PlexSans, Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.metric strong,
+.metric-value,
+.kpi-value {
+  font-family: PlexSans, Arial, sans-serif;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.metrics,
+.metrics > *,
+.panel,
+.table-panel,
+.chart-panel,
+.progress-panel {
+  border-color: #c7baaa;
+  border-radius: 0;
+}
+.metric,
+.metric-card {
+  background: #f8f3ea;
+  border-color: #c7baaa;
+}
+.metric:last-child {
+  background: #e7d4b8;
+}
+th {
+  background: #e0d3bf;
+  color: #554939;
+  font-family: PlexSans, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.025em;
+}
+td {
+  font-family: PlexSans, Arial, sans-serif;
+  font-size: 14px;
+  border-color: #e5dccd;
+}
+tbody tr:hover {
+  background: #ede2cf;
+}
+.panel {
+  background: #faf6ef;
+  box-shadow: none;
+}
+.primary {
+  background: #a53c26;
+  color: #fff5e9;
+  border-color: #a53c26;
+}
+input,
+select,
+.button {
+  font-family: PlexSans, Arial, sans-serif;
+  border-radius: 0;
+}
+.button:not(.primary) {
+  background: #faf6ef;
+  color: #514539;
+  border-color: #bfb09a;
+}
+@media (max-width: 680px) {
+  .folio-brandboard {
+    grid-template-columns: 1fr 0.7fr;
+    gap: 12px;
+    min-height: 230px;
+  }
+  .folio-brandboard .brand-word {
+    font-size: 90px;
+  }
+  .folio-brandboard .brand-drawing {
+    width: 100%;
+    max-width: 200px;
+    margin: 0;
+    align-self: center;
+  }
+  .order-play {
+    grid-column: 1/-1;
+  }
+  .delivery-steps {
+    gap: 12px;
+  }
+}
