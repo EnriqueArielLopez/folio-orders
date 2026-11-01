@@ -194,3 +194,6 @@ El dibujo representa una entrega de forma ilustrativa; no muestra el estado de l
 # Ejemplo interactivo de entrega
 
 La portada permite recorrer un pedido ficticio de 24 unidades entre Pendiente, Parcial y Entregado. La barra y el texto anuncian 0, 12 y 24 unidades entregadas. Es una demostración independiente: no modifica pedidos, importes ni almacenamiento. Los botones admiten teclado y los cambios se anuncian con `aria-live`. Las transiciones respetan movimiento reducido y la pausa del dibujo. Validado junto con las 26 pruebas del proyecto.
+# Dirección editorial actual
+
+La revisión del 01/11/2026 usa Newsreader en la marca y los títulos e IBM Plex Sans en tablas y controles. La cabecera de documento, los tonos papel y terracota y la navegación clara se definen en `workspace.css`. Se conserva el ejemplo interactivo y el flujo de pedidos. Fuentes locales oficiales Google Fonts y licencias OFL en assets. Validación: 26 pruebas y revisión de escritorio/móvil a 390 px.
