@@ -792,17 +792,73 @@ td {
 }
 
 /* Dispatch workspace: an ink rail and paper orders. */
-.sidebar { background:#292720; color:#f5e9d5; border-right:0; }
-.sidebar .logo { background:#ee7442; color:#261f18; padding:16px; margin:-12px -12px 36px; border-radius:2px; }
-.sidebar .sidebar-label,.sidebar .side-bottom,.sidebar .side-bottom p,.sidebar .side-bottom small,.sidebar .side-bottom a,.sidebar .project-attribution,.sidebar .project-attribution strong { color:#bfb7a7; }
-.sidebar .nav.active { background:#f2e6cf; color:#292720; border-radius:3px; }
-.page-head h1 { font:600 44px/1.05 ArchivoNarrow,sans-serif; letter-spacing:-.025em; text-transform:none; }
-.order-board { gap:16px; }
-.board-column { background:#e9e5d9; padding:10px; border-radius:0; }
-.order-card { border-radius:2px; box-shadow:0 2px 0 #d5cbbb; border:0; border-left:3px solid #d8aa7b; }
-.board-column > h3 { padding:6px 2px 14px; }
-.metrics { border-top:2px solid #2e2a22; border-bottom:1px solid #bfb7a7; }
-.metrics strong { font-family:ArchivoNarrow,sans-serif; font-weight:600; }
-.status-shortcuts button { border-radius:2px; }
-@media(max-width:680px) { .sidebar .logo { margin:0; padding:8px 12px; } .page-head h1 { font-size:34px; } }
-
+.sidebar {
+  background: #292720;
+  color: #f5e9d5;
+  border-right: 0;
+}
+.sidebar .logo {
+  background: #ee7442;
+  color: #261f18;
+  padding: 16px;
+  margin: -12px -12px 36px;
+  border-radius: 2px;
+}
+.sidebar .sidebar-label,
+.sidebar .side-bottom,
+.sidebar .side-bottom p,
+.sidebar .side-bottom small,
+.sidebar .side-bottom a,
+.sidebar .project-attribution,
+.sidebar .project-attribution strong {
+  color: #bfb7a7;
+}
+.sidebar .nav.active {
+  background: #f2e6cf;
+  color: #292720;
+  border-radius: 3px;
+}
+.page-head h1 {
+  font:
+    600 44px/1.05 ArchivoNarrow,
+    sans-serif;
+  letter-spacing: -0.025em;
+  text-transform: none;
+}
+.order-board {
+  gap: 16px;
+}
+.board-column {
+  background: #e9e5d9;
+  padding: 10px;
+  border-radius: 0;
+}
+.order-card {
+  border-radius: 2px;
+  box-shadow: 0 2px 0 #d5cbbb;
+  border: 0;
+  border-left: 3px solid #d8aa7b;
+}
+.board-column > h3 {
+  padding: 6px 2px 14px;
+}
+.metrics {
+  border-top: 2px solid #2e2a22;
+  border-bottom: 1px solid #bfb7a7;
+}
+.metrics strong {
+  font-family: ArchivoNarrow, sans-serif;
+  font-weight: 600;
+}
+.status-shortcuts button {
+  border-radius: 2px;
+}
+@media (max-width: 680px) {
+  .sidebar .logo {
+    margin: 0;
+    padding: 8px 12px;
+  }
+  .page-head h1 {
+    font-size: 34px;
+  }
+}
