@@ -1,20 +1,26 @@
+@font-face {
+  font-family: FolioDisplay;
+  src: url('assets/bricolage.ttf') format('truetype');
+  font-weight: 200 800;
+  font-display: swap;
+}
 /* Folio is a shared dispatch table, with navigation above the work. */
 :root {
   --ui: Manrope, Arial, sans-serif;
   --display: Manrope, Arial, sans-serif;
-  --ink: #263448;
-  --muted: #657084;
-  --line: #d4dbe4;
-  --accent: #31537b;
-  --paper: #f0f3f7;
+  --ink: #26221d;
+  --muted: #756b5d;
+  --line: #d4cab9;
+  --accent: #a74e2b;
+  --paper: #f5f0e5;
 }
 body {
   font:
     14px/1.55 Manrope,
     Arial,
     sans-serif;
-  background: #f0f3f7;
-  color: #263448;
+  background: #f5f0e5;
+  color: #26221d;
 }
 body h1,
 body h2,
@@ -36,8 +42,8 @@ body select {
   align-items: center;
   gap: 26px;
   padding: 16px 32px;
-  background: #253d60;
-  color: #f5f7fa;
+  background: #ed7646;
+  color: #26221d;
   border: 0;
 }
 .sidebar .logo {
@@ -45,11 +51,11 @@ body select {
   padding: 0;
   background: transparent;
   font:
-    800 32px/1 Manrope,
+    650 40px/1 FolioDisplay,
     Arial,
     sans-serif;
-  color: #fff;
-  letter-spacing: -0.07em;
+  color: #26221d;
+  letter-spacing: -0.06em;
   text-transform: lowercase;
 }
 .sidebar .desk-mark {
@@ -85,8 +91,8 @@ body select {
 .topbar {
   min-height: 44px;
   padding: 10px 32px;
-  background: #f0f3f7;
-  border-bottom: 1px solid #d4dbe4;
+  background: #f5f0e5;
+  border-bottom: 1px solid #d4cab9;
 }
 main {
   max-width: 1500px;
@@ -98,33 +104,33 @@ main {
 }
 .page-head h1 {
   font:
-    750 31px/1.2 Manrope,
+    600 38px/1.12 FolioDisplay,
     Arial,
     sans-serif;
   text-transform: none;
   letter-spacing: -0.055em;
 }
 .page-head p {
-  color: #657084;
+  color: #756b5d;
   font-size: 13px;
   margin-top: 9px;
 }
 .button {
   border-radius: 6px;
-  border-color: #cbd4e0;
+  border-color: #d4cab9;
   color: #2d4463;
   background: #fff;
   box-shadow: 0 1px 2px #15274210;
 }
 .button.primary {
-  background: #253d60;
-  border-color: #253d60;
+  background: #26221d;
+  border-color: #26221d;
   color: #fff;
   box-shadow: 0 2px 0 #152742;
 }
 .metrics {
   background: #fff;
-  border: 1px solid #d4dbe4;
+  border: 1px solid #d4cab9;
   border-radius: 9px;
   overflow: hidden;
 }
@@ -132,14 +138,14 @@ main {
 .metrics > button {
   background: #fff;
   padding: 16px 22px;
-  border-color: #d4dbe4;
+  border-color: #d4cab9;
 }
 .metrics article:first-child {
   background: #fff;
-  color: #263448;
+  color: #26221d;
 }
 .metrics p {
-  color: #657084;
+  color: #756b5d;
 }
 .metrics strong,
 .metrics .metric-value strong {
@@ -147,11 +153,11 @@ main {
     700 27px/1.3 Manrope,
     Arial,
     sans-serif;
-  color: #263448;
+  color: #26221d;
   letter-spacing: -0.045em;
 }
 .metrics article:first-child strong {
-  color: #31537b;
+  color: #a74e2b;
 }
 .orders-panel {
   margin-top: 28px;
@@ -175,7 +181,7 @@ main {
 .filters input,
 .filters select {
   background: #fff;
-  border: 1px solid #cbd4e0;
+  border: 1px solid #d4cab9;
   border-radius: 5px;
 }
 .status-shortcuts {
@@ -192,11 +198,11 @@ main {
 }
 .status-shortcuts button[aria-pressed='true'] {
   background: transparent;
-  color: #253d60;
-  border-color: #253d60;
+  color: #26221d;
+  border-color: #26221d;
 }
 .board-column {
-  background: #e5eaf1;
+  background: #e9e0d0;
   padding: 12px;
   border: 0;
   border-radius: 8px;
@@ -208,7 +214,7 @@ main {
 }
 .order-card {
   background: #fff;
-  border: 1px solid #d4dbe4;
+  border: 1px solid #d4cab9;
   border-radius: 7px;
   box-shadow: 0 2px 3px #20395108;
   padding: 16px;
@@ -219,7 +225,7 @@ main {
 }
 .order-card strong {
   font-weight: 750;
-  color: #263448;
+  color: #26221d;
 }
 .order-card b {
   font:
@@ -228,7 +234,7 @@ main {
     sans-serif;
 }
 .order-track {
-  background: #e5eaf1;
+  background: #e9e0d0;
 }
 .order-track > span {
   background: #7695ad;
@@ -241,12 +247,12 @@ main {
 }
 #detail {
   background: #f9fbfd;
-  color: #263448;
-  border-left: 1px solid #cbd4e0;
+  color: #26221d;
+  border-left: 1px solid #d4cab9;
 }
 .detail-line {
   background: #eaf0f6;
-  border-color: #cbd4e0;
+  border-color: #d4cab9;
   border-radius: 7px;
 }
 .delivery-shortcuts button {
@@ -254,11 +260,11 @@ main {
 }
 .view-switch {
   border-radius: 6px;
-  background: #e2e8f0;
+  background: #e9e0d0;
 }
 .view-switch button[aria-pressed='true'] {
   background: #fff;
-  color: #253d60;
+  color: #26221d;
 }
 @media (max-width: 680px) {
   .sidebar {
@@ -295,10 +301,141 @@ main {
 }
 
 .metrics article:first-child p {
-  color: #657084;
+  color: #756b5d;
 }
 .orders-panel h2,
 .board-column h3,
 #detail h2 {
   font-family: Manrope, Arial, sans-serif;
+}
+
+.sidebar .nav.active {
+  color: #33271d;
+  background: #f4ad852b;
+  border-color: #9a4e3033;
+}
+.sidebar .nav i {
+  color: #33271d;
+  background: #f5d2b3;
+}
+.metrics {
+  border: 0;
+  border-block: 1px solid #b9ab95;
+  border-radius: 0;
+  background: transparent;
+}
+.metrics article,
+.metrics > button,
+.metrics article:first-child {
+  background: transparent;
+}
+.metrics strong,
+.metrics .metric-value strong {
+  font-family: FolioDisplay, Manrope, sans-serif;
+  font-size: 31px;
+  font-weight: 500;
+}
+.sidebar .desk-mark {
+  display: none;
+}
+.board-column {
+  border-radius: 0;
+  background: #e9e0d0;
+}
+.order-card {
+  border-radius: 2px;
+  border-color: #d4cab9;
+  box-shadow: 0 2px 0 #cfc1a744;
+}
+.order-card strong {
+  color: #26221d;
+}
+/* A ledger with its totals in the margin, rather than another KPI dashboard. */
+@media (min-width: 1000px) {
+  main {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 18px 30px;
+    align-items: start;
+  }
+  .page-head {
+    grid-column: 1/-1;
+    margin: 0;
+    padding: 10px 0 22px;
+  }
+  .app-explainer {
+    grid-column: 1;
+    grid-row: 2;
+    justify-content: flex-start;
+  }
+  .context-bar {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+    padding: 0;
+    min-height: 32px;
+  }
+  .metrics {
+    grid-column: 1;
+    grid-row: 3;
+    display: block;
+    border: 0;
+    border-top: 2px solid #28221b;
+    overflow: visible;
+  }
+  .metrics article,
+  .metrics > button {
+    display: block;
+    width: 100%;
+    padding: 20px 0;
+    border: 0;
+    border-bottom: 1px solid #c9bca8;
+    text-align: left;
+  }
+  .metrics strong,
+  .metrics .metric-value strong {
+    font-size: 27px;
+  }
+  .metrics p {
+    font-size: 11px;
+  }
+  .orders-panel {
+    grid-column: 2;
+    grid-row: 3/6;
+    margin: 0;
+  }
+  .orders-heading {
+    padding: 0 0 16px;
+  }
+  .folio-insights,
+  main > footer,
+  main > .video-demo {
+    grid-column: 1/-1;
+  }
+  .table-wrap {
+    background: #faf7ef;
+    border: 1px solid #d4cab9;
+    border-radius: 0;
+  }
+  th {
+    background: #e9e0d0;
+    color: #5a5144;
+    border-color: #d4cab9;
+    font-family: Manrope, Arial, sans-serif;
+    font-size: 11px;
+  }
+  td {
+    background: transparent;
+    border-color: #ded5c5;
+    font-family: Manrope, Arial, sans-serif;
+    padding-block: 16px;
+  }
+  tbody tr:hover {
+    background: #f0e6d2;
+  }
+  .view-order {
+    border-radius: 50%;
+    background: #28221b;
+    color: #f8eedb;
+  }
 }

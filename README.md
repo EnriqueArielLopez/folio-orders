@@ -221,3 +221,5 @@ Los filtros rápidos Todos/Pendientes/Parciales/Entregados usan el mismo filtro 
 Validación local: 26 pruebas, filtro Parciales (5), preparación 12 → 18 → 24 sin sobreentrega, guardado de 18 y restauración de 12. Revisión móvil de la ficha y controles.
 
 La revisión del carrusel usa interface.css: navegación superior, tablero ancho, sans Manrope y acentos azules con marca naranja. Conserva filtros, detalle y registro de entregas. Revisión local en escritorio y móvil sin modificar datos de ejemplo.
+
+La revisión de dirección gráfica reemplaza el azul por tinta, papel y naranja. Bricolage se usa en marca, título y totales. En escritorio abre la lista con resumen lateral; en móvil abre el tablero. Ambas vistas siguen disponibles. Validación local: 26 tests, paginación 1–8/9–16, detalle PV-1068 y ausencia de desborde móvil.
