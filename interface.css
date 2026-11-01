@@ -1,0 +1,304 @@
+/* Folio is a shared dispatch table, with navigation above the work. */
+:root {
+  --ui: Manrope, Arial, sans-serif;
+  --display: Manrope, Arial, sans-serif;
+  --ink: #263448;
+  --muted: #657084;
+  --line: #d4dbe4;
+  --accent: #31537b;
+  --paper: #f0f3f7;
+}
+body {
+  font:
+    14px/1.55 Manrope,
+    Arial,
+    sans-serif;
+  background: #f0f3f7;
+  color: #263448;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body button,
+body input,
+body select {
+  font-family: Manrope, Arial, sans-serif;
+}
+.sidebar {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 26px;
+  padding: 16px 32px;
+  background: #253d60;
+  color: #f5f7fa;
+  border: 0;
+}
+.sidebar .logo {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font:
+    800 32px/1 Manrope,
+    Arial,
+    sans-serif;
+  color: #fff;
+  letter-spacing: -0.07em;
+  text-transform: lowercase;
+}
+.sidebar .desk-mark {
+  background: #f39467;
+  border-radius: 6px;
+  padding: 3px;
+}
+.sidebar .sidebar-label,
+.sidebar .project-attribution,
+.sidebar .side-bottom {
+  display: none;
+}
+.sidebar .nav {
+  margin: 0;
+  width: auto;
+  padding: 9px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+.sidebar .nav.active {
+  color: #fff;
+  background: #ffffff18;
+  border: 1px solid #ffffff24;
+}
+.sidebar .nav i {
+  background: #ffffff22;
+  color: #fff;
+}
+.workspace {
+  margin: 0;
+  width: 100%;
+}
+.topbar {
+  min-height: 44px;
+  padding: 10px 32px;
+  background: #f0f3f7;
+  border-bottom: 1px solid #d4dbe4;
+}
+main {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 22px 32px 50px;
+}
+.page-head {
+  padding: 16px 0 22px;
+}
+.page-head h1 {
+  font:
+    750 31px/1.2 Manrope,
+    Arial,
+    sans-serif;
+  text-transform: none;
+  letter-spacing: -0.055em;
+}
+.page-head p {
+  color: #657084;
+  font-size: 13px;
+  margin-top: 9px;
+}
+.button {
+  border-radius: 6px;
+  border-color: #cbd4e0;
+  color: #2d4463;
+  background: #fff;
+  box-shadow: 0 1px 2px #15274210;
+}
+.button.primary {
+  background: #253d60;
+  border-color: #253d60;
+  color: #fff;
+  box-shadow: 0 2px 0 #152742;
+}
+.metrics {
+  background: #fff;
+  border: 1px solid #d4dbe4;
+  border-radius: 9px;
+  overflow: hidden;
+}
+.metrics article,
+.metrics > button {
+  background: #fff;
+  padding: 16px 22px;
+  border-color: #d4dbe4;
+}
+.metrics article:first-child {
+  background: #fff;
+  color: #263448;
+}
+.metrics p {
+  color: #657084;
+}
+.metrics strong,
+.metrics .metric-value strong {
+  font:
+    700 27px/1.3 Manrope,
+    Arial,
+    sans-serif;
+  color: #263448;
+  letter-spacing: -0.045em;
+}
+.metrics article:first-child strong {
+  color: #31537b;
+}
+.orders-panel {
+  margin-top: 28px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+.orders-heading {
+  padding: 0 0 18px;
+}
+.orders-heading h2 {
+  font-size: 20px;
+  letter-spacing: -0.03em;
+}
+.filters {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 15px 0 22px;
+}
+.filters input,
+.filters select {
+  background: #fff;
+  border: 1px solid #cbd4e0;
+  border-radius: 5px;
+}
+.status-shortcuts {
+  gap: 8px;
+}
+.status-shortcuts button {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: #5f6d7e;
+  padding: 8px 12px;
+  border-bottom: 2px solid transparent;
+  box-shadow: none;
+}
+.status-shortcuts button[aria-pressed='true'] {
+  background: transparent;
+  color: #253d60;
+  border-color: #253d60;
+}
+.board-column {
+  background: #e5eaf1;
+  padding: 12px;
+  border: 0;
+  border-radius: 8px;
+}
+.board-column > h3 {
+  color: #4f5f73;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+.order-card {
+  background: #fff;
+  border: 1px solid #d4dbe4;
+  border-radius: 7px;
+  box-shadow: 0 2px 3px #20395108;
+  padding: 16px;
+}
+.order-card:hover {
+  border-color: #6e8dab;
+  box-shadow: 0 5px 12px #20395118;
+}
+.order-card strong {
+  font-weight: 750;
+  color: #263448;
+}
+.order-card b {
+  font:
+    700 20px Manrope,
+    Arial,
+    sans-serif;
+}
+.order-track {
+  background: #e5eaf1;
+}
+.order-track > span {
+  background: #7695ad;
+}
+.state-parcial .order-track > span {
+  background: #df906b;
+}
+.state-entregado .order-track > span {
+  background: #75a398;
+}
+#detail {
+  background: #f9fbfd;
+  color: #263448;
+  border-left: 1px solid #cbd4e0;
+}
+.detail-line {
+  background: #eaf0f6;
+  border-color: #cbd4e0;
+  border-radius: 7px;
+}
+.delivery-shortcuts button {
+  border-radius: 4px;
+}
+.view-switch {
+  border-radius: 6px;
+  background: #e2e8f0;
+}
+.view-switch button[aria-pressed='true'] {
+  background: #fff;
+  color: #253d60;
+}
+@media (max-width: 680px) {
+  .sidebar {
+    padding: 14px 20px;
+    gap: 18px;
+  }
+  .sidebar .logo {
+    font-size: 28px;
+  }
+  .sidebar .nav {
+    font-size: 10px;
+    padding: 7px 9px;
+  }
+  .sidebar .nav svg {
+    display: none;
+  }
+  .topbar {
+    padding: 10px 20px;
+  }
+  main {
+    padding: 15px 20px 40px;
+  }
+  .page-head h1 {
+    font-size: 27px;
+  }
+  .metrics article,
+  .metrics > button {
+    padding: 12px;
+  }
+  .metrics strong,
+  .metrics .metric-value strong {
+    font-size: 22px;
+  }
+}
+
+.metrics article:first-child p {
+  color: #657084;
+}
+.orders-panel h2,
+.board-column h3,
+#detail h2 {
+  font-family: Manrope, Arial, sans-serif;
+}
