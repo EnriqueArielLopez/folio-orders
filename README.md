@@ -219,3 +219,5 @@ La marca y los títulos usan Archivo Narrow (Omnibus-Type), con licencia OFL loc
 Los filtros rápidos Todos/Pendientes/Parciales/Entregados usan el mismo filtro de estado que el selector y sincronizan aria-pressed. En la ficha, +1, +6 y Completar preparan la cantidad; no persisten nada hasta Guardar entrega. Respetan el máximo del material y se omiten en pedidos cancelados. El borrador anuncia unidades entregadas y pendientes. Tarjetas y controles tienen profundidad discreta, estados de foco y respuesta al pulsar.
 
 Validación local: 26 pruebas, filtro Parciales (5), preparación 12 → 18 → 24 sin sobreentrega, guardado de 18 y restauración de 12. Revisión móvil de la ficha y controles.
+
+La revisión del carrusel usa interface.css: navegación superior, tablero ancho, sans Manrope y acentos azules con marca naranja. Conserva filtros, detalle y registro de entregas. Revisión local en escritorio y móvil sin modificar datos de ejemplo.
