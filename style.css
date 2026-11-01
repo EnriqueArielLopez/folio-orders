@@ -1,16 +1,16 @@
+@font-face {
+  font-family: Newsreader;
+  src: url('assets/newsreader.ttf') format('truetype');
+  font-weight: 200 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: Manrope;
+  src: url('assets/manrope.ttf') format('truetype');
+  font-weight: 200 800;
+  font-display: swap;
+}
 /* Folio: paper, rules and operational data. */
-@font-face {
-  font-family: Montserrat;
-  src: url('assets/montserrat.ttf') format('truetype');
-  font-weight: 100 900;
-  font-display: swap;
-}
-@font-face {
-  font-family: Roboto;
-  src: url('assets/roboto.ttf') format('truetype');
-  font-weight: 100 900;
-  font-display: swap;
-}
 :root {
   color-scheme: light;
   --ink: #26342e;
@@ -19,10 +19,10 @@
   --line: #d8dfd7;
   --accent: #22674f;
   --lime: #22674f;
-  --paper: #f4f5ef;
-  --surface: #fffefa;
-  --ui: Roboto, Arial, sans-serif;
-  --display: Montserrat, Arial, sans-serif;
+  --paper: #f7f7f2;
+  --surface: #ffffff;
+  --ui: Manrope, Arial, sans-serif;
+  --display: Manrope, Arial, sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -134,9 +134,12 @@ button:disabled {
 .logo {
   display: flex;
   align-items: center;
-  font: 600 34px/1.15 var(--display);
-  letter-spacing: -0.07em;
-  margin-bottom: 35px;
+  font:
+    450 44px/1 Newsreader,
+    Georgia,
+    serif;
+  letter-spacing: -0.055em;
+  margin-bottom: 40px;
 }
 .sidebar-label,
 .overline {
@@ -236,20 +239,23 @@ main {
   gap: 28px;
 }
 h1 {
-  font: 600 clamp(25px, 2.7vw, 38px) / 1.2 var(--display);
-  letter-spacing: -0.055em;
+  font:
+    450 clamp(32px, 3.7vw, 52px) / 1.08 Newsreader,
+    Georgia,
+    serif;
+  letter-spacing: -0.035em;
 }
 h1 > span {
   color: var(--accent);
 }
 h2 {
-  font: 600 15px/1.5 var(--display);
-  letter-spacing: -0.035em;
+  font: 600 16px/1.5 var(--display);
+  letter-spacing: -0.025em;
 }
 .subtitle {
   color: var(--muted);
-  font-size: 13px;
-  margin-top: 10px;
+  font-size: 14px;
+  margin-top: 12px;
 }
 .page-actions {
   display: flex;
@@ -332,7 +338,7 @@ h2 {
   border: 1px solid #a8bdab;
   border-radius: 50%;
   color: var(--accent);
-  font-size: 10px;
+  font-size: 11px;
 }
 .guide-launch small {
   display: block;
@@ -480,12 +486,12 @@ h2 {
   background: var(--accent);
 }
 .bar-value {
-  font-size: 10px;
+  font-size: 11px;
   color: #53695b;
   white-space: nowrap;
 }
 .bar-label {
-  font-size: 10px;
+  font-size: 11px;
   color: var(--muted);
   white-space: nowrap;
 }
@@ -584,7 +590,7 @@ select {
   border: 1px solid #c3cec0;
   border-radius: 3px;
   padding: 8px 10px;
-  background: #fffefa;
+  background: #ffffff;
   color: var(--ink);
 }
 input::placeholder {
@@ -761,7 +767,7 @@ dialog {
   max-height: 90dvh;
   overflow: auto;
   border: 1px solid #c4cfc1;
-  background: #fffefa;
+  background: #ffffff;
   color: var(--ink);
   border-radius: 5px;
   padding: 0 26px 26px;
@@ -907,7 +913,7 @@ dialog::backdrop {
   }
   .sidebar-label {
     margin: 0;
-    font-size: 8px;
+    font-size: 11px;
   }
   .sidebar .nav,
   .side-bottom {
@@ -924,7 +930,7 @@ dialog::backdrop {
     gap: 12px;
   }
   .demo-badge {
-    font-size: 8px;
+    font-size: 11px;
   }
   .avatar {
     display: none;
@@ -938,7 +944,7 @@ dialog::backdrop {
     gap: 19px;
   }
   h1 {
-    font-size: 27px;
+    font-size: 38px;
   }
   .page-actions {
     width: 100%;
@@ -953,7 +959,7 @@ dialog::backdrop {
   .context-bar {
     flex-wrap: wrap;
     gap: 6px;
-    font-size: 10px;
+    font-size: 11px;
   }
   .metrics {
     grid-template-columns: 1fr 1fr;
@@ -1036,7 +1042,7 @@ dialog::backdrop {
     font-size: 23px;
   }
   .demo-badge {
-    font-size: 7px;
+    font-size: 11px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

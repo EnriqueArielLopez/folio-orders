@@ -8,7 +8,7 @@
   cursor: pointer;
   padding: 16px 0;
   font:
-    500 14px/1.6 Roboto,
+    500 14px/1.6 Manrope,
     Arial,
     sans-serif;
 }
@@ -27,12 +27,12 @@
 .video-demo video::cue {
   color: #fff;
   background: #171715ed;
-  font-family: Roboto, Arial, sans-serif;
+  font-family: Manrope, Arial, sans-serif;
 }
 .video-demo > p {
   margin: 12px 0 18px;
   font:
-    400 12px/1.7 Roboto,
+    400 12px/1.7 Manrope,
     Arial,
     sans-serif;
 }

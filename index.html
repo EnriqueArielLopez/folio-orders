@@ -18,14 +18,13 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23f4f5ef'/%3E%3Cpath d='M20 46V18H44M20 30H38' fill='none' stroke='%2322674f' stroke-width='6'/%3E%3C/svg%3E"
     />
-    <link rel="preload" href="assets/roboto.ttf" as="font" type="font/ttf" crossorigin />
-    <link rel="preload" href="assets/montserrat.ttf" as="font" type="font/ttf" crossorigin />
-    <link rel="stylesheet" href="style.css?v=20261030-video-1" />
-    <link rel="stylesheet" href="tutorial.css?v=20261030-video-1" />
-    <link rel="stylesheet" href="identity.css?v=20261030-video-1" />
-    <script type="module" src="src/app.js?v=20261030-video-1"></script>
-    <script type="module" src="src/tutorial.js?v=20261030-video-1"></script>
-    <link rel="stylesheet" href="video.css?v=20261030-video-1" />
+    <link rel="preload" href="assets/manrope.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="stylesheet" href="style.css?v=20261101-type-1" />
+    <link rel="stylesheet" href="tutorial.css?v=20261101-type-1" />
+    <link rel="stylesheet" href="identity.css?v=20261101-type-1" />
+    <script type="module" src="src/app.js?v=20261101-type-1"></script>
+    <script type="module" src="src/tutorial.js?v=20261101-type-1"></script>
+    <link rel="stylesheet" href="video.css?v=20261101-type-1" />
   </head>
   <body>
     <a class="skip" href="#main">Saltar al contenido</a>
@@ -37,7 +36,7 @@
             <path d="M17 27H27V17" stroke="#22674f" stroke-width="1.5" /></svg></span
         ><span>folio</span></a
       >
-      <p class="sidebar-label">PEDIDOS Y ENTREGAS</p>
+      <p class="sidebar-label">ESPACIO DE TRABAJO</p>
       <a class="nav active" href="#main" aria-current="page"
         ><svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
           <rect x="2" y="3" width="16" height="14" rx="2" stroke="currentColor" />
@@ -98,8 +97,8 @@
         <div class="page-head">
           <div>
             <p class="overline">FOLIO / SEGUIMIENTO DE PEDIDOS</p>
-            <h1>Pedidos y entregas<span>.</span></h1>
-            <p class="subtitle">Para ventas, administración y quienes preparan entregas.</p>
+            <h1>Pedidos y entregas</h1>
+            <p class="subtitle">Consultá lo pendiente y registrá cada entrega parcial.</p>
           </div>
           <div class="page-actions">
             <button class="button secondary" id="import-button">
@@ -132,12 +131,10 @@
         <section class="app-explainer" aria-label="Para qué sirve Folio">
           <div>
             <p>
-              <strong>Un cliente pide 24 soportes. Entregaste 12. ¿Qué falta?</strong>
+              <strong>Una vista para seguir cada pedido.</strong>
             </p>
             <p>
-              Cargá una planilla de pedidos (CSV), registrá las entregas y descargá el listado que
-              necesitás. Folio te ayuda a seguir lo pendiente, incluso cuando entregás en varias
-              partes.
+              Importá pedidos desde CSV, actualizá las cantidades entregadas y exportá la selección.
             </p>
           </div>
           <button id="guide-open" class="guide-launch">
@@ -156,39 +153,6 @@
             >
           </button>
         </section>
-        <details class="video-demo" data-video-demo>
-          <summary>
-            Ver demo narrada de Folio<small>Español · Subtítulos disponibles</small>
-          </summary>
-          <video
-            controls
-            playsinline
-            preload="none"
-            width="1280"
-            height="720"
-            poster="assets/video/poster.jpg"
-            aria-label="Demo narrada de Folio"
-            aria-describedby="folio-video-description"
-          >
-            <source src="assets/video/demo.mp4" type="video/mp4" />
-            <track
-              src="assets/video/demo.es.vtt"
-              kind="captions"
-              srclang="es"
-              label="Español"
-              default
-            />
-            Tu navegador no puede reproducir este video. Podés descargarlo en el enlace de abajo.
-          </video>
-          <p id="folio-video-description">
-            Un recorrido explicado con capturas de la aplicación y diagramas animados. Datos
-            ficticios y narración sintética en español.
-          </p>
-          <p class="video-links">
-            <a href="assets/video/transcripcion.txt" download>Descargar transcripción</a
-            ><a href="assets/video/demo.mp4" download>Descargar video MP4</a>
-          </p>
-        </details>
         <div class="context-bar">
           <span><i></i> Datos de ejemplo · ARS · Sin IVA</span
           ><span>Corte de análisis: <strong>22 oct 2026</strong></span>
@@ -421,6 +385,40 @@
               <use href="assets/icons.svg#arrow-down-left"></use></svg
           ></a>
         </footer>
+
+        <details class="video-demo" data-video-demo>
+          <summary>
+            Ver demo narrada de Folio<small>Español · Subtítulos disponibles</small>
+          </summary>
+          <video
+            controls
+            playsinline
+            preload="none"
+            width="1280"
+            height="720"
+            poster="assets/video/poster.jpg"
+            aria-label="Demo narrada de Folio"
+            aria-describedby="folio-video-description"
+          >
+            <source src="assets/video/demo.mp4" type="video/mp4" />
+            <track
+              src="assets/video/demo.es.vtt"
+              kind="captions"
+              srclang="es"
+              label="Español"
+              default
+            />
+            Tu navegador no puede reproducir este video. Podés descargarlo en el enlace de abajo.
+          </video>
+          <p id="folio-video-description">
+            Video de la interfaz anterior a esta revisión visual. El recorrido funcional se
+            mantiene. Datos ficticios y narración sintética en español.
+          </p>
+          <p class="video-links">
+            <a href="assets/video/transcripcion.txt" download>Descargar transcripción</a
+            ><a href="assets/video/demo.mp4" download>Descargar video MP4</a>
+          </p>
+        </details>
       </main>
     </div>
     <dialog
