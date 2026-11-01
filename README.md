@@ -6,6 +6,8 @@ Por ejemplo: Taller Roca pide 24 soportes. Ya recibió 12. Si hoy entregás otra
 
 **[Abrir Folio →](https://enriqueariellopez.github.io/folio-orders/)**
 
+![Folio: pedidos, indicadores y filtros](assets/preview.jpg)
+
 La demo ya tiene 28 pedidos ficticios. Podés modificarlos para conocer la herramienta; no afectan a ninguna empresa ni a otra persona. Proyecto de Ariel López.
 
 ## Mirá primero cómo funciona
@@ -150,7 +152,7 @@ La revisión de seguridad del 23 de octubre de 2026 reforzó los prefijos de fó
 
 ### Tipografías y licencias
 
-Folio usa **Montserrat** para títulos y marca, y **Roboto** para textos, controles y cifras. Las fuentes variables originales se sirven localmente. Sus licencias SIL OFL están en `assets/montserrat-OFL.txt` y `assets/roboto-OFL.txt`; los archivos proceden del repositorio oficial [Google Fonts](https://github.com/google/fonts).
+Folio usa **Newsreader** para el título y la marca, y **Manrope** para textos, controles y cifras. Las fuentes variables originales se sirven localmente. Sus licencias SIL OFL están en `assets/newsreader-OFL.txt` y `assets/manrope-OFL.txt`; los archivos proceden del repositorio oficial [Google Fonts](https://github.com/google/fonts).
 
 
 ## Revisión de interfaz · 30 de octubre de 2026
@@ -169,3 +171,9 @@ Las flechas y los controles de reproducción usan un sprite SVG local (`assets/i
 Folio incluye un recorrido explicado de aproximadamente 55 segundos, con una captura real, diagramas ilustrativos y narración sintética en español. El reproductor nativo no tiene autoplay, usa subtítulos WebVTT y permite descargar la transcripción. Cerrar el panel pausa el video. Los medios y su procedencia viven en `assets/video/`; `src/video.js` contiene únicamente el comportamiento del panel.
 
 El [proceso de generación versionado](https://github.com/EnriqueArielLopez/portfolio-ariel-lopez/tree/main/scripts/media) mantiene guion, capturas y fuentes de los diagramas. La generación no forma parte del runtime de esta app.
+
+## Revisión visual · 1 de noviembre de 2026
+
+Newsreader aporta una marca editorial y Manrope mantiene legibles tabla, importes y controles. La navegación verde oscuro sirve de índice; la mesa de trabajo conserva una superficie clara, líneas finas e indicadores sin sombras decorativas. La demo narrada se encuentra después del área de trabajo e identifica que muestra la interfaz anterior. No cambian importación, persistencia, reglas ni exportación.
+
+Validado en Local: 26 pruebas; búsqueda de pedido, registro de entrega 12 → 18 y restauración a 12; guía interactiva y revisión de escritorio y móvil. Las capturas muestran datos ficticios.
