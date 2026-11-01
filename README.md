@@ -177,3 +177,7 @@ El [proceso de generación versionado](https://github.com/EnriqueArielLopez/port
 Newsreader aporta una marca editorial y Manrope mantiene legibles tabla, importes y controles. La navegación verde oscuro sirve de índice; la mesa de trabajo conserva una superficie clara, líneas finas e indicadores sin sombras decorativas. La demo narrada se encuentra después del área de trabajo e identifica que muestra la interfaz anterior. No cambian importación, persistencia, reglas ni exportación.
 
 Validado en Local: 26 pruebas; búsqueda de pedido, registro de entrega 12 → 18 y restauración a 12; guía interactiva y revisión de escritorio y móvil. Las capturas muestran datos ficticios.
+
+## Segunda revisión visual · 1 de noviembre de 2026
+
+Se reemplaza la dirección anterior por una interfaz de trabajo con Manrope regular, espaciado tipográfico moderado, títulos de 28–40 px, controles legibles y superficies neutras. `direction.css` reúne esta dirección visual. La revisión toma las proporciones tipográficas de Nexus Creative y distingue la presentación del portfolio de la densidad necesaria en una aplicación. Las reglas y los datos no cambian.
