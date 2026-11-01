@@ -1,0 +1,174 @@
+/* A compact working interface: neutral typography and one operational accent. */
+:root {
+  --paper: #f8f9fa;
+  --surface: #fff;
+  --ink: #25282c;
+  --muted: #667079;
+  --line: #e1e5e8;
+  --accent: #28644d;
+  --display: Manrope, Arial, sans-serif;
+}
+body {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.sidebar {
+  background: #fff;
+  color: var(--ink);
+  border-right: 1px solid var(--line);
+  padding-top: 28px;
+}
+.logo {
+  font: 500 32px/1.2 var(--ui);
+  letter-spacing: -0.04em;
+  margin-bottom: 38px;
+}
+.sidebar .desk-mark path {
+  stroke: var(--accent);
+}
+.sidebar-label,
+.side-bottom,
+.project-attribution {
+  color: var(--muted);
+}
+.project-attribution strong {
+  color: var(--ink);
+}
+.nav,
+.project-attribution,
+.side-bottom > a {
+  border-color: var(--line);
+}
+.nav {
+  background: #eef4f0;
+  border: 0;
+  border-radius: 6px;
+  padding: 12px;
+  margin-inline: -12px;
+}
+.nav i {
+  color: var(--accent);
+}
+.nav:hover {
+  color: var(--accent);
+}
+.demo-dot {
+  background: var(--accent);
+}
+.topbar {
+  min-height: 64px;
+}
+main {
+  padding-top: 32px;
+}
+h1 {
+  font: 400 clamp(28px, 2.7vw, 40px) / 1.25 var(--ui);
+  letter-spacing: -0.035em;
+}
+h2 {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.015em;
+}
+.subtitle {
+  font-size: 14px;
+  line-height: 1.7;
+}
+.overline {
+  display: none;
+}
+.page-head {
+  align-items: center;
+}
+.app-explainer {
+  background: transparent;
+  margin-top: 24px;
+  padding: 16px 0;
+}
+.app-explainer strong {
+  font-size: 13px;
+  font-weight: 500;
+}
+.app-explainer p {
+  font-size: 13px;
+}
+.button {
+  border-radius: 6px;
+  font-size: 13px;
+}
+.metrics {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.metrics strong {
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+.metrics p,
+.metrics small {
+  font-size: 12px;
+}
+.metric-alert {
+  background: #faf7ef;
+}
+.orders-panel,
+.chart-panel,
+.delivery-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.orders-heading {
+  padding: 24px 24px 0;
+}
+.filters {
+  padding: 20px 24px;
+  gap: 14px;
+}
+.filters label {
+  font-size: 12px;
+}
+input,
+select {
+  border-color: #d7dee3;
+  border-radius: 5px;
+  background: #fff;
+}
+table {
+  font-size: 13px;
+}
+th {
+  background: #f7f9fa;
+  color: #64717a;
+  font-weight: 500;
+  padding-block: 14px;
+}
+td {
+  border-color: #edf0f2;
+  padding-block: 18px;
+}
+.status {
+  border-radius: 4px;
+}
+.project-attribution {
+  font-size: 12px;
+  line-height: 1.8;
+}
+@media (max-width: 760px) {
+  .sidebar {
+    background: #fff;
+  }
+  .logo {
+    margin-bottom: 0;
+  }
+  main {
+    padding-top: 24px;
+  }
+  .page-head {
+    align-items: start;
+  }
+  .metrics p,
+  .metrics small {
+    font-size: 11px;
+  }
+}
