@@ -1,4 +1,4 @@
-import { status, amounts } from './domain.js';
+import { status, amounts, overdue } from './domain.js';
 
 export function createOrderBoard(openDetail) {
   const panel = document.querySelector('.orders-panel');
@@ -120,7 +120,11 @@ export function createOrderBoard(openDetail) {
         top.className = 'order-card-top';
         top.append(
           text('strong', '', order.id),
-          text('span', '', order.due.slice(8) + '/' + order.due.slice(5, 7)),
+          text(
+            'span',
+            overdue(order) ? 'order-due is-overdue' : 'order-due',
+            order.due.slice(8) + '/' + order.due.slice(5, 7),
+          ),
         );
         button.append(
           top,
