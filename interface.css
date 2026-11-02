@@ -640,7 +640,7 @@ footer {
     flex-wrap: wrap;
   }
 }
-@media (max-width: 760px) {
+@media (max-width: 1050px) {
   .sidebar {
     position: relative;
     width: 100%;

@@ -1,5 +1,14 @@
 /** Browser-only navigation and keyboard affordances, independent of order rules. */
 export function initWorkspace() {
+  const metrics = document.querySelector('.metrics');
+  const sidebarAnchor = document.querySelector('.project-attribution');
+  const compact = matchMedia('(max-width: 1050px)');
+  const placeSummary = () => {
+    if (compact.matches) document.querySelector('.page-head').after(metrics);
+    else sidebarAnchor.before(metrics);
+  };
+  placeSummary();
+  compact.addEventListener('change', placeSummary);
   const search = document.querySelector('#search');
   const returnLink = document.querySelector('.portfolio-return');
   if (location.pathname.includes('/demos/folio/')) returnLink.href = '../../#proyecto-folio';

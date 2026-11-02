@@ -8,7 +8,7 @@ Seguimiento de pedidos y entregas parciales. Cargás un CSV, buscás un pedido, 
 
 ## Uso
 
-La demo incluye 28 pedidos ficticios. La barra lateral resume los pedidos seleccionados; el tablero los agrupa por estado, con columnas de color y fechas vencidas destacadas. También podés cambiar a una lista y combinar filtros por cliente, región, fecha o estado. La tecla `/` lleva a la búsqueda.
+La demo incluye 28 pedidos ficticios. El resumen muestra los pedidos seleccionados; el tablero los agrupa por estado, con columnas de color y fechas vencidas destacadas. También podés cambiar a una lista y combinar filtros por cliente, región, fecha o estado. La tecla `/` lleva a la búsqueda.
 
 Al abrir un pedido, indicá la **cantidad acumulada entregada** de cada material. Si había 12 unidades entregadas y hoy entregaste 6 más, registrá 18. No se admiten sobreentregas. Podés cancelar un pedido y volver a activarlo.
 
@@ -20,19 +20,19 @@ Los importes se expresan en ARS, sin IVA. Son valores de pedidos, no facturació
 
 [Descargar plantilla CSV](examples/pedidos.csv). Separador coma o punto y coma; UTF-8, comillas y campos multilínea admitidos.
 
-| Columna | Contenido |
-| --- | --- |
-| `pedido` | Identificador del pedido |
-| `cliente` | Nombre del cliente |
-| `region` | Región o zona |
-| `fecha` | Alta en formato `AAAA-MM-DD` |
-| `compromiso` | Entrega prometida, mismo formato |
-| `material` | Código del material |
-| `descripcion` | Nombre del material |
-| `cantidad` | Unidades solicitadas; entero de 1 a 100.000 |
+| Columna           | Contenido                                                 |
+| ----------------- | --------------------------------------------------------- |
+| `pedido`          | Identificador del pedido                                  |
+| `cliente`         | Nombre del cliente                                        |
+| `region`          | Región o zona                                             |
+| `fecha`           | Alta en formato `AAAA-MM-DD`                              |
+| `compromiso`      | Entrega prometida, mismo formato                          |
+| `material`        | Código del material                                       |
+| `descripcion`     | Nombre del material                                       |
+| `cantidad`        | Unidades solicitadas; entero de 1 a 100.000               |
 | `precio_unitario` | Precio con punto decimal y sin miles, hasta dos decimales |
-| `entregado` | Unidades acumuladas entregadas |
-| `cancelado` | Opcional: `1` cancelado, `0` activo |
+| `entregado`       | Unidades acumuladas entregadas                            |
+| `cancelado`       | Opcional: `1` cancelado, `0` activo                       |
 
 Los datos generales deben coincidir en todas las filas del mismo pedido. Límite: 2 MB y 5.000 filas, fechas entre 2000 y 2100 y hasta un año entre la primera y la última alta. Una importación inválida no reemplaza la sesión.
 
@@ -54,18 +54,18 @@ Abrí `http://127.0.0.1:4181`. No requiere instalar paquetes ni compilar. Los m�
 
 ## Código y pruebas
 
-HTML, CSS y módulos JavaScript. Source Sans 3 para la interfaz y la marca; fuentes y licencias SIL OFL en `assets/`.
+HTML, CSS y módulos JavaScript. Source Sans 3 para los controles y Newsreader para la portada y la marca. Fuentes y licencias SIL OFL en `assets/`. La fotografía de la portada se sirve en dos tamaños; origen y licencia en [assets/PHOTOS.md](assets/PHOTOS.md). En móvil y tablet, el resumen pasa debajo del encabezado del tablero.
 
-| Ruta | Función |
-| --- | --- |
-| `src/domain.js` | Reglas de pedidos, entregas, estados e importes |
-| `src/csv.js` | Lectura y escritura de archivos |
-| `src/order-board.js` | Tablero y cambio de vista |
-| `src/app.js` | Filtros, ficha y sesión local |
-| `src/tutorial.js` | Guía con datos independientes |
-| `style.css`, `interface.css` | Base y presentación de la aplicación |
-| `sql/`, `scripts/analyze_sql.py` | Comprobación independiente con SQLite |
-| `tests/` | Reglas, CSV y comparación JavaScript/SQLite |
+| Ruta                             | Función                                         |
+| -------------------------------- | ----------------------------------------------- |
+| `src/domain.js`                  | Reglas de pedidos, entregas, estados e importes |
+| `src/csv.js`                     | Lectura y escritura de archivos                 |
+| `src/order-board.js`             | Tablero y cambio de vista                       |
+| `src/app.js`                     | Filtros, ficha y sesión local                   |
+| `src/tutorial.js`                | Guía con datos independientes                   |
+| `style.css`, `interface.css`     | Base y presentación de la aplicación            |
+| `sql/`, `scripts/analyze_sql.py` | Comprobación independiente con SQLite           |
+| `tests/`                         | Reglas, CSV y comparación JavaScript/SQLite     |
 
 Con Node 22+ y Python 3.10+, sin `npm install`:
 

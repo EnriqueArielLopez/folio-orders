@@ -14,7 +14,7 @@ import {
   setDelivery,
 } from './domain.js';
 import { sampleOrders } from './sample.js';
-import { initWorkspace } from './workspace.js';
+import { initWorkspace } from './workspace.js?v=20261102-photo-1';
 initWorkspace();
 initVideoDemos();
 const $ = (selector) => document.querySelector(selector);
