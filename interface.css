@@ -1,12 +1,12 @@
 @font-face {
-  font-family: InstrumentSans;
-  src: url('assets/instrument-sans.ttf') format('truetype');
-  font-weight: 400 700;
+  font-family: SourceSans3;
+  src: url('assets/source-sans-3.ttf') format('truetype');
+  font-weight: 200 900;
   font-display: swap;
 }
 :root {
-  --ui: InstrumentSans, Arial, sans-serif;
-  --display: InstrumentSans, Arial, sans-serif;
+  --ui: SourceSans3, Arial, sans-serif;
+  --display: SourceSans3, Arial, sans-serif;
   --ink: #26323a;
   --muted: #748088;
   --line: #e0e4e6;
@@ -15,7 +15,7 @@
   --surface: #fff;
 }
 body {
-  font: 14px/1.5 var(--ui);
+  font: 15px/1.5 var(--ui);
   background: var(--paper);
   color: var(--ink);
 }
@@ -62,9 +62,9 @@ summary {
   gap: 9px;
   color: #fff;
   font:
-    600 43px/1 Newsreader,
-    Georgia,
-    serif;
+    700 39px/1 SourceSans3,
+    Arial,
+    sans-serif;
   letter-spacing: -0.05em;
   padding: 0;
   margin: 0 0 38px;
@@ -807,4 +807,11 @@ footer {
   max-width: none;
   min-width: 0;
 }
-#detail .detail-line > div:first-child { width: auto; }
+#detail .detail-line > div:first-child {
+  width: auto;
+}
+
+.metric-value {
+  overflow-x: auto;
+  overflow-y: hidden;
+}

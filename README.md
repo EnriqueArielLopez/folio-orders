@@ -54,7 +54,7 @@ Abrí `http://127.0.0.1:4181`. No requiere instalar paquetes ni compilar. Los m�
 
 ## Código y pruebas
 
-HTML, CSS y módulos JavaScript. Instrument Sans para la interfaz y Newsreader para la marca; fuentes y licencias SIL OFL en `assets/`.
+HTML, CSS y módulos JavaScript. Source Sans 3 para la interfaz y la marca; fuentes y licencias SIL OFL en `assets/`.
 
 | Ruta | Función |
 | --- | --- |
