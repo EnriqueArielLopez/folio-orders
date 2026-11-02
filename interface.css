@@ -947,3 +947,7 @@ footer {
   color: #9a4d35;
   background: #f7e2d8;
 }
+
+.board-cards {
+  padding: 3px 3px 5px;
+}
