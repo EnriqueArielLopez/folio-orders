@@ -16,19 +16,12 @@
     />
     <link rel="icon" href="assets/brand-mark.svg" type="image/svg+xml" />
     <link rel="preload" href="assets/manrope.ttf" as="font" type="font/ttf" crossorigin />
-    <link rel="stylesheet" href="style.css?v=20261101-type-1" />
-    <link rel="stylesheet" href="tutorial.css?v=20261101-type-1" />
-    <link rel="stylesheet" href="identity.css?v=20261101-type-1" />
-    <script type="module" src="src/app.js?v=20261101-art-1"></script>
-    <script type="module" src="src/tutorial.js?v=20261101-type-1"></script>
-    <link rel="stylesheet" href="direction.css?v=20261101-art-1" />
-    <link rel="stylesheet" href="video.css?v=20261101-type-1" />
-    <script type="module" src="src/brand-motion.js?v=20261101-art-1"></script>
-    <link rel="stylesheet" href="brand-lab.css?v=20261101-art-1" />
-    <script type="module" src="src/brand-lab.js?v=20261101-art-1"></script>
-    <link rel="stylesheet" href="workspace.css?v=20261101-art-1" />
-    <link rel="stylesheet" href="product.css?v=20261101-art-1" />
-    <link rel="stylesheet" href="interface.css?v=20261101-art-1" />
+    <link rel="stylesheet" href="style.css?v=20261102-ui-1" />
+    <link rel="stylesheet" href="tutorial.css?v=20261102-ui-1" />
+    <script type="module" src="src/app.js?v=20261102-ui-1"></script>
+    <script type="module" src="src/tutorial.js?v=20261102-ui-1"></script>
+    <link rel="stylesheet" href="video.css?v=20261102-ui-1" />
+    <link rel="stylesheet" href="interface.css?v=20261102-ui-1" />
   </head>
   <body>
     <a class="skip" href="#main">Saltar al contenido</a>
@@ -45,6 +38,53 @@
           <path d="M2 8H18M8 8V17" stroke="currentColor" /></svg
         ><span>Pedidos & entregas</span><i>28</i></a
       >
+      <section class="metrics" aria-label="Resumen de pedidos">
+        <article>
+          <p>Valor de pedidos activos</p>
+          <div
+            class="metric-value"
+            tabindex="0"
+            role="region"
+            aria-label="Valor de pedidos activos, importe desplazable horizontalmente"
+          >
+            <strong id="metric-booked">—</strong>
+          </div>
+          <small>Cancelados excluidos</small>
+        </article>
+        <article>
+          <p>Por entregar</p>
+          <div
+            class="metric-value"
+            tabindex="0"
+            role="region"
+            aria-label="Valor pendiente de entregar, importe desplazable horizontalmente"
+          >
+            <strong id="metric-pending">—</strong>
+          </div>
+          <small>Valor de unidades pendientes</small>
+        </article>
+        <article>
+          <p>Pedidos activos</p>
+          <strong id="metric-count">—</strong><small>Dentro de la selección</small>
+        </article>
+        <button id="overdue-button" class="metric-alert" aria-pressed="false">
+          <p>
+            Fuera de compromiso
+            <span
+              ><svg
+                class="icon"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="assets/icons.svg#arrow-up-right"></use></svg
+            ></span>
+          </p>
+          <strong id="metric-overdue">—</strong><small>Ver pendientes vencidos</small>
+        </button>
+      </section>
       <div class="project-attribution">
         <strong>Un proyecto de Ariel López.</strong>Seguimiento de pedidos, de la planilla a la
         entrega.
@@ -96,115 +136,6 @@
         </div>
       </header>
       <main id="main">
-        <section
-          class="folio-brandboard"
-          data-brand-stage
-          aria-label="Folio, del pedido a la entrega"
-        >
-          <div>
-            <span class="brand-kicker">DEL PEDIDO A LA ENTREGA</span>
-            <div class="brand-word" aria-hidden="true">
-              foli<span class="letter-o">o</span><span class="brand-dot">.</span>
-            </div>
-            <div class="order-play" aria-label="Ejemplo de avance de una entrega">
-              <p class="play-kicker">UN PEDIDO / 24 UNIDADES</p>
-              <div class="delivery-track" aria-hidden="true">
-                <i></i><i></i><i></i><i></i><i></i><i></i>
-              </div>
-              <div class="delivery-steps" role="group" aria-label="Probar estados del pedido">
-                <button type="button" data-delivery="0" aria-pressed="true">Pendiente</button>
-                <button type="button" data-delivery="12" aria-pressed="false">Parcial</button>
-                <button type="button" data-delivery="24" aria-pressed="false">Entregado</button>
-              </div>
-              <p class="delivery-caption" aria-live="polite">0 entregadas · 24 pendientes</p>
-            </div>
-          </div>
-          <figure class="brand-drawing">
-            <svg
-              class="brand-art folio-art"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 400 200"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                class="route-dash"
-                d="M15 154h64c35 0 19-53 56-53h72c42 0 13 53 55 53h118"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-dasharray="5 7"
-              />
-              <circle cx="20" cy="154" r="6" fill="currentColor" />
-              <path d="m369 144 11 10-11 10" stroke="currentColor" stroke-width="3" />
-              <g transform="translate(94 54)">
-                <g class="parcel-run">
-                  <path
-                    d="m0 27 62-25 66 28-63 27Z"
-                    fill="#ff9b70"
-                    stroke="#161615"
-                    stroke-width="3"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="m0 27 65 30v68L0 95Z"
-                    fill="#ff703f"
-                    stroke="#161615"
-                    stroke-width="3"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="m65 57 63-27v67l-63 28Z"
-                    fill="#ef572d"
-                    stroke="#161615"
-                    stroke-width="3"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="m33 15 64 29v24l-15 7V51L19 22"
-                    fill="#fff4df"
-                    stroke="#161615"
-                    stroke-width="2"
-                    stroke-linejoin="round"
-                  />
-                  <path d="m12 63 32 15v25L12 88Z" fill="#fff4df" />
-                  <path d="m17 72 22 10m-22-3 15 7" stroke="#161615" stroke-width="2" />
-                </g>
-              </g>
-              <g transform="translate(276 20) rotate(8)">
-                <path
-                  d="M0 0h83v103l-7-5-7 5-7-5-7 5-7-5-7 5-7-5-7 5-7-5-7 5-6-5-7 5Z"
-                  fill="#fff4df"
-                  stroke="#161615"
-                  stroke-width="2"
-                />
-                <path d="M12 15h58M12 40h58M12 50h32M12 62h44" stroke="#161615" stroke-width="2" />
-                <text x="12" y="31" fill="#161615" font-family="monospace" font-size="11">
-                  PEDIDO / 024
-                </text>
-                <path
-                  class="draw-check"
-                  d="m39 79 8 8 18-20"
-                  stroke="#161615"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </g>
-              <g
-                class="folio-spark"
-                transform="translate(54 45)"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M-12 0h24M0-12v24m-8-8 16 16m-16 0L8-8" />
-              </g>
-            </svg>
-            <figcaption>Pedido de ejemplo</figcaption>
-          </figure>
-          <button class="brand-motion-toggle" data-brand-motion aria-pressed="false" hidden>
-            Pausar dibujo
-          </button>
-        </section>
         <div class="page-head">
           <div>
             <p class="overline">FOLIO / SEGUIMIENTO DE PEDIDOS</p>
@@ -268,53 +199,6 @@
           <span><i></i> Datos de ejemplo · ARS · Sin IVA</span
           ><span>Corte de análisis: <strong>22 oct 2026</strong></span>
         </div>
-        <section class="metrics" aria-label="Resumen de pedidos">
-          <article>
-            <p>Valor de pedidos activos</p>
-            <div
-              class="metric-value"
-              tabindex="0"
-              role="region"
-              aria-label="Valor de pedidos activos, importe desplazable horizontalmente"
-            >
-              <strong id="metric-booked">—</strong>
-            </div>
-            <small>Cancelados excluidos</small>
-          </article>
-          <article>
-            <p>Por entregar</p>
-            <div
-              class="metric-value"
-              tabindex="0"
-              role="region"
-              aria-label="Valor pendiente de entregar, importe desplazable horizontalmente"
-            >
-              <strong id="metric-pending">—</strong>
-            </div>
-            <small>Valor de unidades pendientes</small>
-          </article>
-          <article>
-            <p>Pedidos activos</p>
-            <strong id="metric-count">—</strong><small>Dentro de la selección</small>
-          </article>
-          <button id="overdue-button" class="metric-alert" aria-pressed="false">
-            <p>
-              Fuera de compromiso
-              <span
-                ><svg
-                  class="icon"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <use href="assets/icons.svg#arrow-up-right"></use></svg
-              ></span>
-            </p>
-            <strong id="metric-overdue">—</strong><small>Ver pendientes vencidos</small>
-          </button>
-        </section>
 
         <section class="orders-panel" aria-labelledby="orders-title">
           <div class="orders-heading">
