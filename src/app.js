@@ -1,5 +1,5 @@
 import { enhanceDeliveryControls } from './delivery-controls.js';
-import { createOrderBoard } from './order-board.js';
+import { createOrderBoard } from './order-board.js?v=20261102-life-1';
 import { icon } from './icons.js';
 import { initVideoDemos } from './video.js';
 import {

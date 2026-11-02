@@ -8,7 +8,7 @@ Seguimiento de pedidos y entregas parciales. Cargás un CSV, buscás un pedido, 
 
 ## Uso
 
-La demo incluye 28 pedidos ficticios. La barra lateral resume los pedidos seleccionados; el tablero los agrupa por estado. También podés cambiar a una lista y combinar filtros por cliente, región, fecha o estado. La tecla `/` lleva a la búsqueda.
+La demo incluye 28 pedidos ficticios. La barra lateral resume los pedidos seleccionados; el tablero los agrupa por estado, con columnas de color y fechas vencidas destacadas. También podés cambiar a una lista y combinar filtros por cliente, región, fecha o estado. La tecla `/` lleva a la búsqueda.
 
 Al abrir un pedido, indicá la **cantidad acumulada entregada** de cada material. Si había 12 unidades entregadas y hoy entregaste 6 más, registrá 18. No se admiten sobreentregas. Podés cancelar un pedido y volver a activarlo.
 
