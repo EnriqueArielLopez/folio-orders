@@ -1,225 +1,81 @@
-# Folio · Pedidos y entregas
+# Folio
 
-Folio te ayuda a seguir **qué pidió cada cliente, cuánto le entregaste y qué falta**. Sirve para ventas, administración y quienes preparan entregas. Cargás una planilla de pedidos, anotás las entregas y descargás el listado que necesitás.
+Seguimiento de pedidos y entregas parciales. Cargás un CSV, buscás un pedido, registrás lo entregado y exportás la selección.
 
-Por ejemplo: Taller Roca pide 24 soportes. Ya recibió 12. Si hoy entregás otras 6, registrás **18 entregadas en total** y Folio muestra **6 pendientes**. No necesitás registrarte ni instalar nada para probarlo.
+[Abrir la aplicación](https://enriqueariellopez.github.io/folio-orders/)
 
-**[Abrir Folio →](https://enriqueariellopez.github.io/folio-orders/)**
+![Pedidos en Folio](assets/preview.jpg)
 
-![Folio: pedidos, indicadores y filtros](assets/preview.jpg)
+## Uso
 
-La demo ya tiene 28 pedidos ficticios. Podés modificarlos para conocer la herramienta; no afectan a ninguna empresa ni a otra persona. Proyecto de Ariel López.
+La demo incluye 28 pedidos ficticios. La barra lateral resume los pedidos seleccionados; el tablero los agrupa por estado. También podés cambiar a una lista y combinar filtros por cliente, región, fecha o estado. La tecla `/` lleva a la búsqueda.
 
-## Mirá primero cómo funciona
+Al abrir un pedido, indicá la **cantidad acumulada entregada** de cada material. Si había 12 unidades entregadas y hoy entregaste 6 más, registrá 18. No se admiten sobreentregas. Podés cancelar un pedido y volver a activarlo.
 
-En la parte superior de la app, tocá **Ver cómo funciona**. Abre una guía visual con seis escenas de un pedido ficticio:
+**Exportar vista** descarga todos los pedidos filtrados, incluidas las páginas que no están visibles. **Restaurar ejemplo** reemplaza la sesión actual. La guía **Ver cómo funciona** usa un pedido separado y no modifica tus datos.
 
-1. Qué pidió el cliente y cuánto falta entregar.
-2. Dónde abrir la ficha del pedido.
-3. Cómo registrar una entrega acumulada: de 12 a 18.
-4. Cómo quedan las 6 unidades pendientes y su valor.
-5. Cómo encontrar pedidos con la fecha prometida vencida.
-6. Cómo entrar con una planilla CSV y descargar la vista filtrada.
+Los importes se expresan en ARS, sin IVA. Son valores de pedidos, no facturación ni cobros. El corte del ejemplo es el 22/10/2026. Los cancelados no suman en los indicadores; el avance se pondera por importe.
 
-La guía empieza **en pausa**, para que la leas a tu ritmo. Usá **Anterior** y **Siguiente**, o **Reproducir guía** para avanzar automáticamente cada 12 segundos. Podés pausar, reiniciar o cerrar cuando quieras. **Cerrar**, **Terminar guía** y la tecla **Escape** vuelven a la aplicación.
+## Archivo de entrada
 
-Es una simulación interactiva de la interfaz, con datos propios: no cambia los pedidos, filtros o archivos que cargaste ni guarda datos en tu sesión. Si tu sistema pide movimiento reducido, la guía muestra las escenas sin animaciones. [Abrir directamente la guía →](https://enriqueariellopez.github.io/folio-orders/?tutorial=1)
+[Descargar plantilla CSV](examples/pedidos.csv). Separador coma o punto y coma; UTF-8, comillas y campos multilínea admitidos.
 
-## Cómo usar Folio
-
-### 1. Encontrá un pedido
-
-Usá **Pedido o cliente** para buscar un nombre o un número. Si preferís, elegí un estado, una región o un rango de fechas de alta. La tabla, los importes y los gráficos se actualizan con la selección.
-
-- **Fuera de compromiso** muestra los pedidos con una entrega pendiente y una fecha de compromiso anterior al corte de análisis. Volvé a pulsarlo para quitar ese filtro.
-- **Limpiar** borra todos los filtros.
-- Las flechas al pie de la tabla cambian de página. En un celular, deslizá la tabla hacia los costados para ver todas las columnas.
-- Pulsá **Pedido** para cambiar el orden por número o **Valor neto** para mostrar los mayores importes primero.
-
-### 2. Registrá una entrega
-
-Abrí la ficha con **↗** al final de la fila. En cada material aparece la cantidad solicitada y la cantidad ya entregada. Cambiá **Entregado de…** y pulsá **Guardar entrega**.
-
-**La cantidad es acumulada:** si ya entregaste 3 unidades y hoy entregás 2 más, escribí **5**, no 2. Folio no permite superar la cantidad solicitada.
-
-El estado se calcula solo:
-
-| Estado | Qué significa |
+| Columna | Contenido |
 | --- | --- |
-| Pendiente | Todavía no se entregó ninguna unidad. |
-| Parcial | Se entregó una parte del pedido. |
-| Entregado | Se entregaron todas las unidades. |
-| Cancelado | Se canceló el pedido y queda fuera de los indicadores. |
+| `pedido` | Identificador del pedido |
+| `cliente` | Nombre del cliente |
+| `region` | Región o zona |
+| `fecha` | Alta en formato `AAAA-MM-DD` |
+| `compromiso` | Entrega prometida, mismo formato |
+| `material` | Código del material |
+| `descripcion` | Nombre del material |
+| `cantidad` | Unidades solicitadas; entero de 1 a 100.000 |
+| `precio_unitario` | Precio con punto decimal y sin miles, hasta dos decimales |
+| `entregado` | Unidades acumuladas entregadas |
+| `cancelado` | Opcional: `1` cancelado, `0` activo |
 
-En la misma ficha podés **Cancelar pedido** o **Reactivar pedido**. La cancelación conserva las cantidades registradas; podés volver a activarlo cuando quieras. Cerrá la ficha con **×** o con la tecla **Escape**.
+Los datos generales deben coincidir en todas las filas del mismo pedido. Límite: 2 MB y 5.000 filas, fechas entre 2000 y 2100 y hasta un año entre la primera y la última alta. Una importación inválida no reemplaza la sesión.
 
-### 3. Guardá lo que necesitás
+## Datos y límites
 
-**Exportar vista** descarga un archivo `folio-pedidos.csv` con todos los pedidos que coinciden con los filtros, incluidas las páginas que no estás viendo. Los cambios también se guardan en este navegador y se recuperan al volver a abrir Folio.
+El archivo se procesa en el navegador. Folio guarda la sesión en el almacenamiento local de ese perfil; puede quedar disponible para quien use el mismo perfil. No se envía a un servidor ni se comparte entre equipos. Exportá lo que quieras conservar antes de borrar los datos del navegador.
 
-Para empezar de nuevo, pulsá **Restaurar ejemplo**. Esto reemplaza los datos y las entregas de tu sesión por los 28 pedidos iniciales. Si querés conservar tu trabajo, exportalo antes.
+Es una demo sin usuarios, permisos, colaboración ni conexión con SAP. Las empresas y operaciones incluidas son ficticias. El video narrado del final muestra una versión anterior de la interfaz.
 
-## Importar tus propios pedidos
+## Ejecutar localmente
 
-1. Descargá la [plantilla CSV](examples/pedidos.csv) o usá **Descargar plantilla CSV** al pie de la aplicación.
-2. Abrila en una planilla y completá las columnas sin cambiar sus nombres. Cada fila representa un material; repetí el número de pedido si tiene varios materiales.
-3. Guardá el archivo como CSV y pulsá **Importar CSV** en Folio.
-
-Una importación correcta reemplaza los pedidos que había en el navegador. Si hay un error, aparece un aviso y los datos anteriores se conservan.
-
-| Columna | Qué completar | Ejemplo |
-| --- | --- | --- |
-| `pedido` | Número o identificador del pedido | `PED-001` |
-| `cliente` | Nombre del cliente | `Comercial del Sur` |
-| `region` | Región o zona | `AMBA` |
-| `fecha` | Fecha de alta, con formato año-mes-día | `2026-10-01` |
-| `compromiso` | Fecha prometida de entrega, con el mismo formato | `2026-10-20` |
-| `material` | Código del material | `MAT-001` |
-| `descripcion` | Nombre del material | `Caja organizadora` |
-| `cantidad` | Unidades solicitadas | `10` |
-| `precio_unitario` | Precio en pesos, con punto decimal y sin miles | `1250.50` |
-| `entregado` | Unidades acumuladas entregadas | `4` |
-| `cancelado` | Opcional: `1` si está cancelado; `0` si está activo | `0` |
-
-Los datos generales de un pedido deben coincidir en todas sus filas. Se admiten archivos de hasta **2 MB**, con **5.000 filas** y hasta un año entre la primera y la última fecha de alta. Las fechas deben estar entre 2000 y 2100.
-
-## Cómo leer los números
-
-- **Valor de pedidos activos:** importe total de los pedidos seleccionados, sin los cancelados.
-- **Por entregar:** valor de las unidades que todavía faltan entregar.
-- **Pedidos activos:** cantidad de pedidos seleccionados, sin los cancelados.
-- **Avance de entrega:** porcentaje del valor entregado sobre el valor total. Se pondera por importe, no por cantidad de materiales.
-- **Ritmo de pedidos:** valor por semana de alta. Para períodos de más de 90 días, se agrupa por mes. Si hay muchos períodos, desplazá el gráfico hacia los costados. Los importes excepcionalmente largos también se pueden desplazar dentro de su indicador para leer todos los dígitos.
-
-Todos los importes están en **pesos argentinos (ARS), sin IVA**. Son valores de pedidos; no representan facturación ni cobros. El corte de análisis está fijado en **22/10/2026**, para que el ejemplo produzca siempre el mismo resultado.
-
-## Privacidad y límites
-
-Los archivos se procesan en tu navegador y no se envían a un servidor. La sesión se conserva en el almacenamiento local del navegador: no se comparte entre computadoras, perfiles o personas. Si borrás los datos del navegador, esa copia puede desaparecer; usá **Exportar vista** para conservar un archivo.
-
-La demo no tiene usuarios, permisos, trabajo simultáneo entre personas ni conexión con SAP. Las empresas, los materiales y las operaciones del ejemplo son ficticios.
-
-## Ejecutar en tu computadora
-
-Necesitás **Python 3.10 o posterior**. Descargá este repositorio y abrí una terminal dentro de su carpeta. Ejecutá:
+Python 3.10+ y un navegador actual:
 
 ```sh
 python -m http.server 4181 --bind 127.0.0.1
 ```
 
-Después abrí **http://127.0.0.1:4181** en el navegador. Mantené la terminal abierta mientras lo usás; para detener el servidor, presioná `Ctrl+C`. Si en Windows el comando `python` no existe, probá `py -m http.server 4181 --bind 127.0.0.1`.
+Abrí `http://127.0.0.1:4181`. No requiere instalar paquetes ni compilar. Los módulos necesitan HTTP; no alcanza con abrir el HTML como archivo.
 
-No hay que instalar paquetes ni compilar la aplicación. Abrir `index.html` con doble clic no es suficiente, porque la aplicación utiliza módulos de JavaScript.
+## Código y pruebas
 
-## Para desarrollar
+HTML, CSS y módulos JavaScript. Instrument Sans para la interfaz y Newsreader para la marca; fuentes y licencias SIL OFL en `assets/`.
 
-HTML, CSS y JavaScript con módulos nativos. La interfaz usa un escritorio de pedidos sobre papel, tinta verde, cifras tabulares y controles con foco de teclado visible. La tabla ocupa el lugar principal; los gráficos quedan después de los pedidos. En pantallas angostas, la tabla conserva sus columnas y permite desplazamiento horizontal. Los paneles de datos y la barra lateral no requieren filtros de desenfoque.
+| Ruta | Función |
+| --- | --- |
+| `src/domain.js` | Reglas de pedidos, entregas, estados e importes |
+| `src/csv.js` | Lectura y escritura de archivos |
+| `src/order-board.js` | Tablero y cambio de vista |
+| `src/app.js` | Filtros, ficha y sesión local |
+| `src/tutorial.js` | Guía con datos independientes |
+| `style.css`, `interface.css` | Base y presentación de la aplicación |
+| `sql/`, `scripts/analyze_sql.py` | Comprobación independiente con SQLite |
+| `tests/` | Reglas, CSV y comparación JavaScript/SQLite |
 
-Requisitos de validación: **Node 22 o 24 LTS+** y **Python 3.10+**. No hace falta `npm install`.
+Con Node 22+ y Python 3.10+, sin `npm install`:
 
 ```sh
 npm test
 python scripts/analyze_sql.py examples/pedidos.csv
 ```
 
-Si Python está instalado con otro nombre o ruta, definí `LOTE_PYTHON` con su ejecutable antes de correr las pruebas. Ese nombre se conserva por compatibilidad con el runner compartido de validación.
+`LOTE_PYTHON` permite indicar otro ejecutable de Python al runner de pruebas. Los importes se calculan en centavos enteros; los totales por pedido y lote activo no pueden superar `2^53 - 1` centavos. SQLite es una comprobación aparte, no el backend de la web. El analizador termina con código 2 si el archivo es inválido.
 
-| Archivo | Responsabilidad |
-| --- | --- |
-| `src/domain.js` | Importación y reglas de pedidos, cantidades, estados e importes |
-| `src/csv.js` | Lectura y escritura CSV con comillas, BOM y campos multilínea |
-| `src/app.js` | Filtros, tabla, gráfico, ficha y sesión local |
-| `src/tutorial.js` / `src/tutorial-model.js` | Guía visual y pedido ficticio independiente de la sesión |
-| `style.css` / `identity.css` | Diseño adaptable y detalles visuales del escritorio |
-| `tutorial.css` | Presentación aislada de la guía visual |
-| `sql/schema.sql` | Modelo relacional de cabecera y posiciones, restricciones y resumen |
-| `scripts/analyze_sql.py` | Carga transaccional y consulta SQLite en memoria |
-| `tests/` | Pruebas de negocio, CSV y paridad con SQLite |
+La exportación protege posibles prefijos de fórmulas y conserva los límites de cada celda. Las pruebas verifican el CSV generado, no el comportamiento de todas las planillas. La página incluye una CSP parcial para bases, objetos, formularios y scripts en atributos.
 
-Los importes se calculan en centavos enteros. El modelo SQLite se ejecuta por separado para comprobar los resultados; no es un backend de la aplicación web. El analizador Python rechaza cantidades fuera de 1–100.000, sobreentregas, precios fuera del formato de la web y totales por pedido o lote activo superiores a `2^53 - 1` centavos. Esto evita que SQLite convierta un importe desbordado a punto flotante. Los errores de CSV y validación terminan con código `2` y un mensaje, sin emitir un resumen parcial.
-
-La exportación entrecomilla los campos, duplica las comillas internas y antepone un apóstrofo a valores con posibles iniciadores de fórmula: `=`, `+`, `-`, `@`, sus variantes de ancho completo y tabulaciones o saltos de línea iniciales. Las pruebas comprueban la serialización del archivo; no ejecutan Excel ni otras planillas. Algunas planillas pueden eliminar la protección al guardar y volver a abrir el CSV: no existe una defensa universal para todos los consumidores, como explica [OWASP sobre CSV Injection](https://community.owasp.org/attacks/CSV_Injection).
-
-### Validación y publicación
-
-26 pruebas cubren precisión monetaria, entregas parciales, sobreentregas, estados, cancelación, vencimientos, fechas, importación atómica, CSV y paridad JavaScript/SQLite, además de los prefijos peligrosos en CSV, desbordes del analizador SQL, entradas incompletas y el cálculo aislado del ejemplo de la guía. La integración continua las ejecuta con Node y Python. Los cambios de interfaz requieren además una revisión visual y funcional de filtros, ficha, teclado y móvil.
-
-GitHub Pages publica `main` en la cuenta personal **EnriqueArielLopez**. Esta demo es independiente de los ambientes y servicios corporativos de Practical Solutions; su validación se realiza en Local y GitHub Pages.
-
-### Seguridad del navegador y del CI
-
-La revisión de seguridad del 23 de octubre de 2026 reforzó los prefijos de fórmulas CSV y los límites numéricos del analizador SQL. La página incluye una política CSP parcial que bloquea bases HTML, objetos, envíos de formulario a la red y manejadores JavaScript en atributos; no reemplaza una CSP completa del servidor. Las pruebas locales usan Node 22 LTS. La migración del CI a Node 24 LTS y a acciones fijadas por commit quedó preparada: GitHub requiere el permiso `workflow` que no incluye la credencial actual; el workflow vigente todavía usa Node 20 y etiquetas de versión.
-
-### Tipografías y licencias
-
-Folio usa **Manrope** para títulos, marca, textos, controles y cifras. Newsreader se conserva como recurso de la revisión anterior. Las fuentes variables originales se sirven localmente. Sus licencias SIL OFL están en `assets/newsreader-OFL.txt` y `assets/manrope-OFL.txt`; los archivos proceden del repositorio oficial [Google Fonts](https://github.com/google/fonts).
-
-
-## Revisión de interfaz · 30 de octubre de 2026
-
-La interfaz prioriza datos y tareas: superficies más simples, jerarquía tipográfica y un enlace de retorno al portfolio que funciona también en la demo integrada. La tecla `/` lleva a la búsqueda cuando no se está editando otro campo ni hay un diálogo abierto. Los resultados de filtros y paginación se anuncian mediante una región de estado accesible.
-
-`src/workspace.js` contiene estas mejoras de navegación, separado de las reglas de negocio. El código del frontend usa un formato consistente definido en `.prettierrc.json` y `.editorconfig`; no se añadieron dependencias de runtime. Las guías mantienen sus ejemplos separados de la sesión de trabajo.
-
-La revisión tipográfica posterior recupera el papel del proyecto dentro del portfolio: una identidad de pedidos, tabla antes que gráficos y guía de alto contraste en `tutorial.css`. Se preservan las instrucciones y las reglas originales.
-
-Las flechas y los controles de reproducción usan un sprite SVG local (`assets/icons.svg`) y el helper `src/icons.js` para el contenido dinámico. Conservan el color del control y no dependen de los glifos emoji del teléfono. Los iconos son decorativos; las etiquetas y los estados accesibles siguen describiendo cada acción.
-
-
-## Demo narrada
-
-Folio incluye un recorrido explicado de aproximadamente 55 segundos, con una captura real, diagramas ilustrativos y narración sintética en español. El reproductor nativo no tiene autoplay, usa subtítulos WebVTT y permite descargar la transcripción. Cerrar el panel pausa el video. Los medios y su procedencia viven en `assets/video/`; `src/video.js` contiene únicamente el comportamiento del panel.
-
-El [proceso de generación versionado](https://github.com/EnriqueArielLopez/portfolio-ariel-lopez/tree/main/scripts/media) mantiene guion, capturas y fuentes de los diagramas. La generación no forma parte del runtime de esta app.
-
-## Revisión visual · 1 de noviembre de 2026
-
-Newsreader aporta una marca editorial y Manrope mantiene legibles tabla, importes y controles. La navegación verde oscuro sirve de índice; la mesa de trabajo conserva una superficie clara, líneas finas e indicadores sin sombras decorativas. La demo narrada se encuentra después del área de trabajo e identifica que muestra la interfaz anterior. No cambian importación, persistencia, reglas ni exportación.
-
-Validado en Local: 26 pruebas; búsqueda de pedido, registro de entrega 12 → 18 y restauración a 12; guía interactiva y revisión de escritorio y móvil. Las capturas muestran datos ficticios.
-
-## Segunda revisión visual · 1 de noviembre de 2026
-
-Se reemplaza la dirección anterior por una interfaz de trabajo con Manrope regular, espaciado tipográfico moderado, títulos de 28–40 px, controles legibles y superficies neutras. `direction.css` reúne esta dirección visual. La revisión toma las proporciones tipográficas de Nexus Creative y distingue la presentación del portfolio de la densidad necesaria en una aplicación. Las reglas y los datos no cambian.
-
-## Ajuste de color y tipografía · 1 de noviembre de 2026
-
-Folio recupera verde salvia en la navegación y bandas de tabla, con fondo marfil y títulos de peso medio. Se conserva la composición compacta de la segunda revisión. No cambian reglas ni interacciones.
-
-## Identidad propia y movimiento · 1 de noviembre de 2026
-
-Folio combina negro, naranja y papel claro. Bricolage Grotesque identifica la marca y los títulos; Manrope conserva la lectura de datos y controles. El símbolo del folio plegado y la ilustración de paquete/remito son SVG originales del proyecto (`assets/brand-mark.svg` y `assets/brand-art.svg`). Las fuentes se sirven localmente con licencias OFL (`assets/bricolage-OFL.txt` y `assets/manrope-OFL.txt`).
-
-El dibujo representa una entrega de forma ilustrativa; no muestra el estado de los pedidos. Se puede pausar con **Pausar dibujo**. El movimiento se detiene fuera de pantalla, al ocultar la pestaña o si el sistema solicita movimiento reducido. `src/brand-motion.js` administra solo esta presentación, separada de las reglas de pedidos.
-# Ejemplo interactivo de entrega
-
-La portada permite recorrer un pedido ficticio de 24 unidades entre Pendiente, Parcial y Entregado. La barra y el texto anuncian 0, 12 y 24 unidades entregadas. Es una demostración independiente: no modifica pedidos, importes ni almacenamiento. Los botones admiten teclado y los cambios se anuncian con `aria-live`. Las transiciones respetan movimiento reducido y la pausa del dibujo. Validado junto con las 26 pruebas del proyecto.
-# Dirección editorial actual
-
-La revisión del 01/11/2026 usa Newsreader en la marca y los títulos e IBM Plex Sans en tablas y controles. La cabecera de documento, los tonos papel y terracota y la navegación clara se definen en `workspace.css`. Se conserva el ejemplo interactivo y el flujo de pedidos. Fuentes locales oficiales Google Fonts y licencias OFL en assets. Validación: 26 pruebas y revisión de escritorio/móvil a 390 px.
-
-## Espacio de pedidos actual · 1 de noviembre de 2026
-
-`product.css` reemplaza la dirección editorial anterior: navegación negra, naranja discreto, marca Bricolage y controles IBM Plex Sans. La cabecera ilustrada anterior queda oculta para priorizar los pedidos.
-
-La vista inicial agrupa todos los pedidos filtrados por estado; cada tarjeta abre la ficha lateral real para registrar entregas. El selector **Lista** conserva la tabla paginada. Los filtros, importación, exportación y persistencia existentes se comparten entre ambas vistas. Los gráficos se consultan en **Ver evolución y avance de entregas**. No hay arrastre ficticio ni cambios en las reglas de cálculo.
-
-Validación local: 26 pruebas, tablero/lista, filtro por pedido, apertura de ficha y entrega parcial/completa restaurada al valor original. Revisión visual a 1280 px y 390 px, sin desbordamiento general.
-
-## Identidad de despacho · 01/11/2026
-
-Folio usa una navegación naranja, Bricolage en títulos e importes, IBM Plex Sans en controles y tarjetas que remiten a comprobantes de entrega. El tablero conserva sus reglas y ficha lateral. Las tarjetas aparecen una vez con una transición corta, desactivada con movimiento reducido. Captura actualizada. Validación: 26 pruebas, tablero, ficha y revisión de escritorio; el código de dominio no cambió.
-
-## Tipografía de comprobantes · 01/11/2026
-
-La marca y los títulos usan Archivo Narrow (Omnibus-Type), con licencia OFL local en assets. Se retiró Bricolage de la dirección actual. Los importes vuelven a IBM Plex Sans para leerlos con facilidad. Se conserva la estructura y las interacciones del tablero; nueva captura de escritorio.
-
-## Atajos y preparación de entregas · 01/11/2026
-
-Los filtros rápidos Todos/Pendientes/Parciales/Entregados usan el mismo filtro de estado que el selector y sincronizan aria-pressed. En la ficha, +1, +6 y Completar preparan la cantidad; no persisten nada hasta Guardar entrega. Respetan el máximo del material y se omiten en pedidos cancelados. El borrador anuncia unidades entregadas y pendientes. Tarjetas y controles tienen profundidad discreta, estados de foco y respuesta al pulsar.
-
-Validación local: 26 pruebas, filtro Parciales (5), preparación 12 → 18 → 24 sin sobreentrega, guardado de 18 y restauración de 12. Revisión móvil de la ficha y controles.
-
-La revisión del carrusel usa interface.css: navegación superior, tablero ancho, sans Manrope y acentos azules con marca naranja. Conserva filtros, detalle y registro de entregas. Revisión local en escritorio y móvil sin modificar datos de ejemplo.
-
-La revisión de dirección gráfica reemplaza el azul por tinta, papel y naranja. Bricolage se usa en marca, título y totales. En escritorio abre la lista con resumen lateral; en móvil abre el tablero. Ambas vistas siguen disponibles. Validación local: 26 tests, paginación 1–8/9–16, detalle PV-1068 y ausencia de desborde móvil.
+GitHub Pages publica `main`. Los cambios se revisan en una rama y pasan pruebas locales y CI antes del merge. El workflow vigente usa Node 20; su migración requiere un permiso de GitHub que no tiene la credencial de esta sesión.

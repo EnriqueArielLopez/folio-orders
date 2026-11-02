@@ -50,7 +50,7 @@ export function createOrderBoard(openDetail) {
     shortcuts.append(button);
   });
   panel.querySelector('.filters').before(shortcuts);
-  let view = matchMedia('(max-width: 680px)').matches ? 'board' : 'list',
+  let view = 'board',
     lastOpened;
   function applyView() {
     board.hidden = view !== 'board';
