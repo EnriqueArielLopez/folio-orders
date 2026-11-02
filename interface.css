@@ -767,3 +767,44 @@ footer {
   white-space: nowrap;
   flex-shrink: 0;
 }
+
+#detail {
+  max-width: 560px;
+}
+#detail .detail-line {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 140px;
+  gap: 14px 20px;
+  align-items: start;
+}
+#detail .detail-line > label {
+  min-width: 0;
+}
+#detail .detail-line input {
+  width: 100%;
+}
+#detail .delivery-shortcuts,
+#detail .delivery-draft {
+  grid-column: 1/-1;
+  margin: 0;
+}
+#detail .delivery-shortcuts button {
+  font-size: 12px;
+  min-height: 34px;
+  padding: 7px 12px;
+}
+#detail .delivery-draft {
+  font-size: 13px;
+}
+@media (max-width: 480px) {
+  #detail .detail-line {
+    grid-template-columns: minmax(0, 1fr) 110px;
+    gap: 12px;
+  }
+}
+
+#detail .detail-line > div {
+  max-width: none;
+  min-width: 0;
+}
+#detail .detail-line > div:first-child { width: auto; }
