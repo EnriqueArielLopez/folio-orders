@@ -802,3 +802,9 @@ footer {
     gap: 12px;
   }
 }
+
+#detail .detail-line > div {
+  max-width: none;
+  min-width: 0;
+}
+#detail .detail-line > div:first-child { width: auto; }
